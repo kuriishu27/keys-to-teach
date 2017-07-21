@@ -143,7 +143,7 @@
                         <a href="#">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img src="https://static1.squarespace.com/static/552ba5cde4b0042c027f81a9/t/555ca2a2e4b09a177513c72d/1432134308950/Bosendorpher-close.jpg" class="img-responsive img-keys" alt="">
+                                    <img src="http://mediad.publicbroadcasting.net/p/vpr/files/201703/Open-piano-istock-easybuy4u-20170331_0.jpg" class="img-responsive img-keys" alt="">
                                 </div>
                                 <div class="col-sm-7 cards">
                                     <h3>Posture</h3>
