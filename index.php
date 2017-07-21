@@ -12,7 +12,7 @@
     <title>Keys to Learn</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Enriqueta" rel="stylesheet">
     <!-- Theme CSS -->
