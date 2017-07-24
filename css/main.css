@@ -17,6 +17,7 @@ html {
   font-family: "Enriqueta", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased !important;
 }
 body {
   margin: 0;
@@ -7005,8 +7006,9 @@ a.list-group-item-danger.active:focus {
   line-height: 500px;
 }
 
-@keyframes faded-left {
-    0% {opacity: 0; transform: translateX(-200px)}
+@keyframes faded {
+    0% {opacity: 0; transform: translateX(0)}
+    50% { opacity: 0.5; transform: scale(1.1); }
     100% {opacity: 1; transform: translateX(0)}
 }
 
@@ -7015,9 +7017,40 @@ a.list-group-item-danger.active:focus {
   vertical-align: middle;
   line-height: normal;
   font-size:80px;
-  animation: faded-left 3s ease-in-out alternate;
+  animation: faded 3s ease-in-out alternate;
 }
 
 .quicklinks {
   float: right
+}
+
+.btn-tags {
+  border-radius: 15px;
+  border: 2px solid #ffd15e;
+  background-color: white;
+  color: #ffd15e;
+  transition: all 300ms ease-in-out
+}
+
+.btn-tags:hover {
+  border-radius: 15px;
+  border: 2px solid #ffd15e;
+  background-color: #ffd15e;
+  color: white;
+}
+
+.btn-tags:focus {
+  border-radius: 15px;
+  border: 2px solid #ffd15e;
+  background-color: #ffd15e;
+  color: white;
+}
+
+.interest-screen {
+    position: fixed;
+    background: rgba(0,0,0,0.7);
+    z-index: 50000;
+    height: 100%; 
+    width: 100%;
+    display: none;
 }
