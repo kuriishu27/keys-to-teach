@@ -5,7 +5,9 @@ var express = require('express'),
     methodOverride = require('method-override'),
     flash = require('connect-flash')
 
-mongoose.connect(process.env.DATABASEURL);
+var url = process.env.DATABASEURL || 'http://localhost/keys-to-play'
+
+mongoose.connect(url);
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
