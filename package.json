@@ -1,0 +1,40 @@
+{
+  "name": "keys-to-teach",
+  "version": "1.0.0",
+  "description": "is built by the shared experience of piano teachers, pedagogues and pianists. So, in order for it to continue growing, I encourage you to share your own strategies, tips, games or exercises that might help others to improve the quality of their piano lessons and make piano lessons more enjoyable to more students.",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-session": "^1.15.4",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuriishu27/keys-to-teach.git"
+  },
+  "keywords": [
+    "music",
+    "learning",
+    "piano",
+    "teaching",
+    "how",
+    "to",
+    "play",
+    "an",
+    "instrument"
+  ],
+  "author": "J. Marina Gómez // Christian Ray Leovido",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuriishu27/keys-to-teach/issues"
+  },
+  "homepage": "https://github.com/kuriishu27/keys-to-teach#readme"
+}
