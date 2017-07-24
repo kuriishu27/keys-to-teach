@@ -37,6 +37,6 @@ var indexRoutes = require('./routes/index')
 app.use('/', indexRoutes);
 
 var PORT = 8080;
-app.listen(PORT, process.env.IP, function() {
+app.listen(PORT || 8080, process.env.IP, function() {
     console.log('Keys to Learn server started');
 })
