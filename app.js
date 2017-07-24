@@ -5,7 +5,7 @@ var express = require('express'),
     methodOverride = require('method-override'),
     flash = require('connect-flash')
 
-mongoose.connect('mongodb://localhost/keystolearn');
+mongoose.connect('mongodb://kuriishu27:KeystoteacH277@ds147537.mlab.com:47537/keys-to-teach');
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
