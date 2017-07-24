@@ -5,7 +5,7 @@ var express = require('express'),
     methodOverride = require('method-override'),
     flash = require('connect-flash')
 
-mongoose.connect('mongodb://kuriishu27:KeystoteacH277@ds147537.mlab.com:47537/keys-to-teach');
+mongoose.connect(process.env.DATABASEURL);
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -37,6 +37,6 @@ var indexRoutes = require('./routes/index')
 app.use('/', indexRoutes);
 
 var PORT = 8080;
-app.listen(PORT || 8080, process.env.IP, function() {
+app.listen(process.env.PORT || PORT, process.env.IP, function() {
     console.log('Keys to Learn server started');
 })
