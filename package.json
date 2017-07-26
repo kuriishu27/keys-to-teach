@@ -25,13 +25,10 @@
     "learning",
     "piano",
     "teaching",
-    "how",
-    "to",
-    "play",
-    "an",
-    "instrument"
+    "how to play an instrument",
+    "teaching methods"
   ],
-  "author": "J. Marina Gómez // Christian Ray Leovido",
+  "author": "J. Marina Gómez<jmarinagomez@gmail.com> // Christian Ray Leovido <christian.leovido@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kuriishu27/keys-to-teach/issues"

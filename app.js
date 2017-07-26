@@ -5,7 +5,7 @@ var express = require('express'),
     methodOverride = require('method-override'),
     flash = require('connect-flash')
 
-var url = process.env.DATABASEURL || 'http://localhost/keys-to-play'
+var url = process.env.DATABASEURL || 'http://localhost/keys-to-teach'
 
 mongoose.connect(url);
 
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(require('express-session')({
-    secret: 'Apos by accent',
+    secret: 'Keys to teach session',
     resave: false,
     saveUninitialized: false
 }));
