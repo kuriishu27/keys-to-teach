@@ -19,7 +19,7 @@ router.post('/contribute', function (req, res) {
             service: 'Gmail',
             auth: {
                 user: "xtian993@gmail.com",
-                pass: "process.env.SECRET"
+                pass: process.env.SECRET
             }
         });
 
