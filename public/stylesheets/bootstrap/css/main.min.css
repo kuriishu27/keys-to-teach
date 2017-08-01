@@ -1851,7 +1851,7 @@ abbr[data-original-title] {
 blockquote {
     padding: 10.5px 21px;
     margin: 0 0 21px;
-    font-size: 18.75px;
+    font-size: 16px;
     border-left: 5px solid #e6e6e6
 }
 
@@ -8303,10 +8303,8 @@ a.list-group-item-danger.active:focus {
 }
 
 .prelude {
-    margin-top: 50px;
+    margin-top: 80px;
     text-align: center;
-    height: 500px;
-    line-height: 500px
 }
 
 @keyframes faded {
@@ -8325,10 +8323,7 @@ a.list-group-item-danger.active:focus {
 }
 
 .fancy-title {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    font-size: 80px;
+    font-size: 70px;
     animation: faded 3s ease-in-out alternate
 }
 
@@ -8386,4 +8381,32 @@ a.list-group-item-danger.active:focus {
     font-weight:bold;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
+}
+
+#imaginary_container{
+    margin-top:10%; /* Don't copy this */
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.spacing {
+    padding-top: 20px;
+}
+
+.spacing2 {
+    padding-bottom: 20px;
+}
+
+#contribute {
+    margin-bottom: 50px;
 }
