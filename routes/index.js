@@ -18,7 +18,7 @@ router.post('/contribute', function (req, res) {
     var transport = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: "xtian993@gmail.com",
+                user: "jmarinagomez@gmail.com",
                 pass: process.env.SECRET
             }
         });
@@ -38,10 +38,10 @@ router.post('/contribute', function (req, res) {
         subject: 'New contribution from Keys to Teach', 
 
         // plaintext body
-        text: 'Message: ' + req.body.message + '\n' + 'Name: ' + req.body.name + '\n' + 'Email: ' + req.body.email,
+        text: 'Title: ' + req.body.title + 'Message: ' + req.body.message + '\n' + 'Name: ' + req.body.name + '\n' + 'Email: ' + req.body.email + 'Checked name: ' + req.body.namecheckbox,
 
         // HTML body
-        html:'Message: ' + req.body.message + '\n' + 'Name: ' + req.body.name + '\n' + 'Email: ' + req.body.email,
+        html:'Title: ' + req.body.title + 'Message: ' + req.body.message + '\n' + 'Name: ' + req.body.name + '\n' + 'Email: ' + req.body.email + 'Checked name: ' + req.body.namecheckbox,
     
     };
 
@@ -49,7 +49,7 @@ router.post('/contribute', function (req, res) {
     transport.sendMail(message, function(error){
     if(error){
         console.log(error);
-            req.flash('error', "Email or message required");
+            req.flash('error', error);
             res.redirect('/');
         return;
     }
