@@ -17,6 +17,7 @@ var commentRoutes = require('./routes/comments'),
 
 mongoose.promise = global.Promise;
 
+var url = process.env.DATABASEURL;
 
 mongoose.connect(url);
 
