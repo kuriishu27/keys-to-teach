@@ -151,6 +151,54 @@ router.post('/contribute', function (req, res) {
             
 });
 
+router.post('/contact', function (req, res) {
+
+    // Create a SMTP transport object
+    var transport = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+                user: "jmarinagomez@gmail.com",
+                pass: process.env.SECRET
+            }
+        });
+
+    console.log('SMTP Configured');
+
+    // Message object
+    var message = {
+
+        // sender info
+        from: 'Keys to Teach',
+
+        // Comma separated list of recipients
+        to: ['marina.g16@edu.trinitylaban.ac.uk'],
+
+        // Subject of the message
+        subject: 'New query from Keys to Teach', 
+
+        // plaintext body
+        text: 'Name: ' + req.body.name + '\n' + 'Email: ' + req.body.email +'Message: ' + req.body.message,
+
+        // HTML body
+        html: 'Name: ' + req.body.name + '\n' + 'Email: ' + req.body.email +'Message: ' + req.body.message,
+    
+    };
+
+    transport.sendMail(message, function(error){
+
+    if(error){
+        console.log(error);
+            req.flash('error', error);
+            res.redirect('/');
+        return;
+    }
+        req.flash('success', 'Thank you, we\'ll get back to you soon');
+        res.redirect('/');
+
+    });
+            
+});
+
 router.get('/keys', function(req, res) {
     Key.find({}, function(err, allKeys){
         if(err){
