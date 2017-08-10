@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+
+<div class="container" style="margin: 100px auto">
+    <% keys.forEach(function(key){ %>
+    <div class="col-sm-6">
+        <h1><%= key.title %></h1>
+        <p class="Key-att"><%= key.description %></p>
+        <p class="Key-att"><%= key.sourceAuthor %></p>
+        <a style="color:#ffd15e" href="<%= key.link %>" class="Key-att">Link</a>
+        <button class="btn-tags">Horizontal movement</button>
+    </div>
+    <% }); %>
+
+</div>
+
+<% include ../partials/footer %>

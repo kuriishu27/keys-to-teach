@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+
+<div class="container jumbotron text-center" style="margin: 100px auto">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Add new Key</h2>
+
+            <form class="form-group" action='/addKeys' method='POST'>
+                <input type='text' name='title' class="form-control form-style" placeholder='Title'>
+                <textarea class="form-control form-style" placeholder="Description" id="description" name="description"></textarea>
+                <input type='text' name='source' class="form-control form-style" placeholder='Source (author)'>
+                <input type='text' name='link' class="form-control form-style" placeholder='Link (source)'>
+                <input type='text' name='tags' class="form-control form-style" placeholder='Tags'>
+
+                
+                <input type='submit' class="btn-success btn" value='Add New Key'>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<% include ./partials/footer %>
