@@ -47,31 +47,31 @@ router.get('/contribute', function(req, res, next) {
 router.get('/survey', function(req, res, next) {
     res.render('survey')
 });
-// router.get("/search", function(req, res) {
-//     "use strict";
+router.get("/search", function(req, res) {
+    "use strict";
 
-//     var page = req.query.page ? parseInt(req.query.page) : 0;
-//     var query = req.query.query ? req.query.query : "";
+    var page = req.query.page ? parseInt(req.query.page) : 0;
+    var query = req.query.query ? req.query.query : "";
 
-//     items.searchItems(query, page, ITEMS_PER_PAGE, function(searchItems) {
+    items.searchItems(query, page, ITEMS_PER_PAGE, function(searchItems) {
 
-//         items.getNumSearchItems(query, function(itemCount) {
+        items.getNumSearchItems(query, function(itemCount) {
 
-//             var numPages = 0;
+            var numPages = 0;
             
-//             if (itemCount > ITEMS_PER_PAGE) {
-//                 numPages = Math.ceil(itemCount / ITEMS_PER_PAGE);
-//             }
+            if (itemCount > ITEMS_PER_PAGE) {
+                numPages = Math.ceil(itemCount / ITEMS_PER_PAGE);
+            }
             
-//             res.render('search', { queryString: query,
-//                                     itemCount: itemCount,
-//                                     pages: numPages,
-//                                     page: page,
-//                                     items: searchItems });
+            res.render('search', { queryString: query,
+                                    itemCount: itemCount,
+                                    pages: numPages,
+                                    page: page,
+                                    items: searchItems });
             
-//         });
-//     });
-// });
+        });
+    });
+});
 
 router.get('/addKeys', middleware.isLoggedIn, function(req, res) {
     res.render('addKeys', {message: req.flash('error')});
@@ -90,7 +90,7 @@ router.post('/addKeys', middleware.isLoggedIn, function(req, res) {
         description: description,
         sourceAuthor: source,
         link: link,
-        tags: [tags],
+        tags: tags.split(', '),
         contributor: contributor,
         isPublic: true
     };
@@ -98,6 +98,7 @@ router.post('/addKeys', middleware.isLoggedIn, function(req, res) {
         if (err){
             console.log(err); 
         } else {
+            console.log(newArticle);
             res.redirect('/keys');
         }
     });
