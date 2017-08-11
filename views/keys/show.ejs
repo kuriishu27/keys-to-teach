@@ -1,0 +1,66 @@
+<% include ../partials/header %>
+
+<div class='container' style="margin-top: 100px">
+    <div class='row'>
+        <div class='col-xs-3'>
+            <h2>Tags</h2>
+            <% if (keys.tags.length == 1) { %>
+            <% var newArray = keys.tags[0].split(', ') %>
+            <% newArray.forEach(function(tag) { %>
+                <li class=list-group-item><%= tag %></li>
+            <% }); %>
+
+        <!-- uncomment code above when issue is resolved  -->
+         <% } else { %>
+            
+            <% keys.tags.forEach(function(tag) { %>
+                <li class=list-group-item><%= tag %></li>
+            <% }); %>
+
+        <% } %> 
+        </div>
+        <div class='col-xs-9'>
+            <h2><%= keys.title %></h2>
+            <p><%=keys.description%></p>
+
+            <% if(currentUser) { %>
+                
+            
+            <a class='btn btn-warning' href='/keys/<%= keys._id %>/edit'>Edit</a>
+            <form id='delete-form' action='/keys/<%= keys._id %>?_method=DELETE' method='POST'>
+                <button class='btn btn-danger'>Delete</a>
+            </form>
+            
+            <% } %>
+        </div>
+        <div class='well'>
+            <div class='text-right'>
+                <a class='btn btn-success' href='/keys/<%=keys._id%>/comments/new'>Add New Comment</a>
+            </div>
+            <% keys.comments.forEach(function(comment){ %>
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <strong><%= comment.author.username %></strong>
+                        <span class='pull-right'>10 days ago</span>
+                <p>
+                    <%= comment.text %>
+                </p>
+                <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+
+                    <a class='btn btn-xs btn-warning' 
+                    href='/keyss/<%= keys._id %>/comments/<%= comment._id %>/edit'>
+                    Edit
+                    </a>
+                    <form id='delete-form' action='/keyss/<%= keys._id %>/comments/<%= comment._id %>?_method=DELETE' method='POST'>
+                        <input type='submit' class='btn btn-xs btn-danger' value='Delete'>
+                    </form>
+                <% } %>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
