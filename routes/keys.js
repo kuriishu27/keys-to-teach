@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
         if(err){
             console.log(err);
         } else {
-            console.log("This is working");
             res.render('keys/index', {
                 keys: allKeys
             });
@@ -19,6 +18,17 @@ router.get('/', function(req, res) {
 router.get('/:id/edit', function(req, res) {
     Key.findById(req.params.id, function(err, foundKey) {
         res.render('keys/edit', {campground: foundKey});
+    });
+});
+
+router.delete('/', function(req, res) {
+
+
+});
+
+router.get('/:id', function(req, res) {
+    Key.findById(req.params.id, function(err, foundKey) {
+        res.render('keys/show', {keys: foundKey});
     });
 });
 
