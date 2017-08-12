@@ -8434,7 +8434,6 @@ a.list-group-item-danger.active:focus {
     border:0;
     background:transparent;
 }
-<<<<<<< HEAD
 @media (max-width: 768px) {
     .spacing {
         height: auto
@@ -8450,11 +8449,6 @@ a.list-group-item-danger.active:focus {
 
 .spacing>img {
     margin: -10px;
-=======
-
-.spacing {
-    padding-top: 20px;
->>>>>>> origin/master
 }
 
 .spacing2 {
@@ -8502,7 +8496,6 @@ div>h2 {
     color: white;
     background: black;
     cursor: pointer;
-<<<<<<< HEAD
 }
 
 .about-img {
@@ -8513,6 +8506,3 @@ div>h2 {
     background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Piano_strings.jpg/1024px-Piano_strings.jpg');
     background-size: cover;    
 } */
-=======
-}
->>>>>>> origin/master
