@@ -8372,11 +8372,7 @@ a.list-group-item-danger.active:focus {
     transition: all 300ms ease-in-out;
 }
 
-<<<<<<< HEAD
-.btn-tags:first-letter, .list-group-item:first-letter, li>a:first-letter {
-=======
 .btn-tags:first-letter, .list-group-item:first-letter {
->>>>>>> origin/master
     text-transform:capitalize;
 }
 
