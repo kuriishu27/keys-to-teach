@@ -8249,10 +8249,12 @@ a.list-group-item-danger.active:focus {
 }
 
 .portfolio-item {
-    background: rgba(0, 0, 0, .7);
+    background: rgba(255, 255, 255, .7);
     border-radius: 10px;
-    padding: 25px;
-    margin: 10px
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px black;
+    padding: 20px;
+    margin-top: 10px;
 }
 
 .img-keys {
@@ -8347,6 +8349,17 @@ a.list-group-item-danger.active:focus {
     float: right
 }
 
+.link-new-add {
+    background:#D4331B;
+    padding: 50px;
+
+}
+
+.link-new-add:hover {
+    color: #D4331B;
+    background:white;
+}
+
 .btn-tags {
     margin: 5px;
     max-width: 250px;
@@ -8359,7 +8372,7 @@ a.list-group-item-danger.active:focus {
     transition: all 300ms ease-in-out;
 }
 
-.btn-tags:first-letter, .list-group-item:first-letter {
+.btn-tags:first-letter, .list-group-item:first-letter, li>a:first-letter {
     text-transform:capitalize;
 }
 
@@ -8421,9 +8434,21 @@ a.list-group-item-danger.active:focus {
     border:0;
     background:transparent;
 }
+@media (max-width: 768px) {
+    .spacing {
+        height: auto
+    }
+}
 
-.spacing {
-    padding-top: 20px;
+@media (min-width: 769px) {
+    .spacing {
+        margin-top: 20px;
+        height: 35vh
+    }
+}
+
+.spacing>img {
+    margin: -10px;
 }
 
 .spacing2 {
@@ -8472,3 +8497,12 @@ div>h2 {
     background: black;
     cursor: pointer;
 }
+
+.about-img {
+    max-width: 300px;
+}
+/* #landing-header {
+    width:100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Piano_strings.jpg/1024px-Piano_strings.jpg');
+    background-size: cover;    
+} */
