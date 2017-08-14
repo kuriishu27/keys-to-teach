@@ -8508,7 +8508,6 @@ div>h2 {
 }
 #landing-header>div, #about>div, #survey>div, .contribute>.contribute2, .contribute>.contribute-section, .contact-form {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 2px double black;
     padding: 60px
 }
 
