@@ -8501,10 +8501,21 @@ div>h2 {
 .about-img {
     max-width: 300px;
 }
-#landing-header>div, #about>div {
+
+.contribute-section {
+    margin-top: 50px;
+    margin-bottom: 30px
+}
+#landing-header>div, #about>div, #survey>div, .contribute>.contribute2, .contribute>.contribute-section, .contact-form {
     background-color: rgba(255, 255, 255, 0.8);
     border: 2px double black;
     padding: 60px
+}
+
+
+
+#contribute-main {
+    margin-bottom: 30px
 }
 
 .bg {
