@@ -11,6 +11,8 @@ var express = require('express'),
     methodOverride = require('method-override'),
     flash = require('connect-flash')
 
+const env = require('env2')('env.json');
+
 var commentRoutes = require('./routes/comments'),
     keysRoutes = require('./routes/keys'),
     indexRoutes = require('./routes/index');
