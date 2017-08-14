@@ -47,30 +47,48 @@ router.get('/contribute', function(req, res, next) {
 router.get('/survey', function(req, res, next) {
     res.render('survey')
 });
+
 router.get("/search", function(req, res) {
     "use strict";
 
-    var page = req.query.page ? parseInt(req.query.page) : 0;
     var query = req.query.query ? req.query.query : "";
 
-    items.searchItems(query, page, ITEMS_PER_PAGE, function(searchItems) {
+    var searchItems = function(query, callback) {
 
-        items.getNumSearchItems(query, function(itemCount) {
+        var items = [];
 
-            var numPages = 0;
-            
-            if (itemCount > ITEMS_PER_PAGE) {
-                numPages = Math.ceil(itemCount / ITEMS_PER_PAGE);
-            }
-            
-            res.render('search', { queryString: query,
-                                    itemCount: itemCount,
-                                    pages: numPages,
-                                    page: page,
-                                    items: searchItems });
-            
-        });
+        var cursor = Key
+            .find({ $text: { $search: query } })
+            .sort({"title" : 1 }).stream()
+            .on('data', function(doc){
+                items.push(doc);
+            })
+            .on('error', function(err){
+                assert.equal(err, null);
+            })
+            .on('end', function(){
+                callback(res.render('search', { 
+                queryString: query,
+                items: items }));
+            });
+
+
+    }
+
+    searchItems(query, function() {
+        
     });
+
+    
+    // searchItems(query, function(searchItems) {
+
+    //     items.getNumSearchItems(query, function(itemCount) {
+
+            // res.render('search', { queryString: query,
+            //                         items: searchItems });
+            
+    //     });
+    // });
 });
 
 router.get('/addKeys', middleware.isLoggedIn, function(req, res) {
