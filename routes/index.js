@@ -55,21 +55,21 @@ router.get("/search", function(req, res) {
 
     var searchItems = function(query, callback) {
 
-        var items = [];
+        var keys = [];
 
         var cursor = Key
             .find({ $text: { $search: query } })
             .sort({"title" : 1 }).stream()
             .on('data', function(doc){
-                items.push(doc);
+                keys.push(doc);
             })
             .on('error', function(err){
                 assert.equal(err, null);
             })
             .on('end', function(){
                 callback(res.render('search', { 
-                queryString: query,
-                items: items }));
+                query: query,
+                keys: keys }));
             });
 
 
