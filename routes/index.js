@@ -75,20 +75,6 @@ router.get("/search", function(req, res) {
 
     }
 
-    searchItems(query, function() {
-        
-    });
-
-    
-    // searchItems(query, function(searchItems) {
-
-    //     items.getNumSearchItems(query, function(itemCount) {
-
-            // res.render('search', { queryString: query,
-            //                         items: searchItems });
-            
-    //     });
-    // });
 });
 
 router.get('/addKeys', middleware.isLoggedIn, function(req, res) {
@@ -112,6 +98,7 @@ router.post('/addKeys', middleware.isLoggedIn, function(req, res) {
         contributor: contributor,
         isPublic: true
     };
+    
     Key.create(newArticle, function(err, newArticle){
         if (err){
             console.log(err); 
