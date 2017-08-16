@@ -29,7 +29,28 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/', function(req, res, next) {
-    res.render('index')
+
+    var allTags = [];
+
+    Key.aggregate([{ $project: { tags : 1}}, 
+        
+        {$group: {_id: null, tags:  { "$addToSet" : "$tags" } } }, 
+        {$unwind: "$tags"}, 
+        {$unwind: "$tags"}, 
+        {$project: {"_id": 0, "tags": "$tags"}}, 
+        {$group: {_id: null, allTags: {$addToSet: "$tags"}}} 
+
+    ], function (err, result) {
+        if (err) {
+            next(err);
+        } else {
+            allTags = result[0].allTags    
+            res.render('index', {
+                allTags: allTags
+            });
+        }
+    });
+    
 });
 
 router.get('/contact', function(req, res, next) {
@@ -57,6 +78,21 @@ router.get("/search", function(req, res) {
 
         var keys = [];
 
+        var numItems = 0;
+        
+        var cursor2 = Key.aggregate([
+            { $match: {$text: { $search: query } } }, 
+            { $group: {_id: null, num: {$sum: 1}}}
+        ], function (err, result) {
+            if (err) {
+                next(err);
+            } else {
+                if (result.length > 0) {
+                    numItems = result[0].num                    
+                }
+            }
+        });
+
         var cursor = Key
             .find({ $text: { $search: query } })
             .sort({"title" : 1 }).stream()
@@ -69,11 +105,16 @@ router.get("/search", function(req, res) {
             .on('end', function(){
                 callback(res.render('search', { 
                 query: query,
-                keys: keys }));
+                keys: keys,
+                numItems: numItems }));
             });
 
 
     }
+
+    searchItems(query, function() {
+        
+    });
 
 });
 
