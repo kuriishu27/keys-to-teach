@@ -8253,7 +8253,7 @@ a.list-group-item-danger.active:focus {
     border-radius: 10px;
     border: 2px solid black;
     box-shadow: 2px 2px 2px black;
-    padding: 20px;
+    padding: 30px;
     margin-top: 10px;
 }
 
@@ -8506,7 +8506,7 @@ div>h2 {
     margin-top: 50px;
     margin-bottom: 30px
 }
-#landing-header>div, #about>div, #survey>div, .contribute>.contribute2, .contribute>.contribute-section, .contact-form {
+#landing-header>div, #about>div, #survey>div, .contribute>.contribute2, .contribute>.contribute-section, .contact-form, .keys-section {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 60px
 }
@@ -8515,8 +8515,6 @@ div>h2 {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 30px;
 }
-
-
 
 #contribute-main {
     margin-bottom: 30px
@@ -8527,3 +8525,18 @@ div>h2 {
     background-size: cover;
     background-attachment: fixed;
 }
+
+.list-hover {
+    transition: all 500ms ease-in-out;
+}
+.list-hover:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#multiple-datasets .league-name {
+    margin: 0 20px 5px 20px;
+    padding: 3px 0;
+    border-bottom: 1px solid #ccc;
+  }
