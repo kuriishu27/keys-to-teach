@@ -1,43 +1,60 @@
 <% include ../partials/header %>
 
-<div id="landing-header" style="height: 500px">
-    <div class="prelude">
-        <h1 style="padding: 18vh">Keys</h1>
+<div class="search-page" style="margin-top:50px">
+    <!-- <div class="prelude"> -->
+        <h1>Keys</h1>
+        <div class="input-group stylish-input-group" style="max-width:400px;margin: 20px auto">
+                <form role="search" action="/search">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control typeahead" name="query" placeholder="Search" >
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>  
+                        </span>
+                    </div>
+                </form>
+            </div>
         <br>
-    </div>
+    <!-- </div> -->
 </div>
 
-<div class="container" style="margin: 100px auto">
+<div class="container" style="margin: 20px auto">
      <% keys.forEach(function(key){ %>
     <div class="clearfix col-xs-12 col-sm-6">
         <div class="portfolio-item">
-        <h2><a href='/keys/<%= key._id%>' class="single-article"><%= key.title.toUpperCase() %></a></h2>
-        <p class="Key-att"><%= key.description %></p>
-        <a style="color:#ffd15e;font-weight:bold;font-size: 16px" href="<%= key.link %>" class="Key-att">Link</a>
-        <p class="Key-att"><%= key.sourceAuthor %></p>
-        <p>Tags</p>
-        <% if (key.tags.length == 1) { %>
-            <% var newArray = key.tags[0].split(', ') %>
-            <form role="search" action="/search">
-            <% newArray.forEach(function(tag) { %>
-                    <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
-            <% }); %>
-            </form>
-        
-        <!-- uncomment code above when issue is resolved  -->
-         <% } else { %>
-            
-            <form role="search" action="/search">                
-            <% key.tags.forEach(function(tag) { %>
-                    <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
-            <% }); %>
-            </form>
-        
-        <% } %> 
+        <h2>
+            <a href='/keys/<%= key._id%>' class="single-article"><%= key.title.toUpperCase() %></a>
+        </h2>
+        <p class="item-att"><%= key.description.substring(0, 200) + "..." %><a class="keys-link" href='/keys/<%= key._id%>'>Read more</a>
+        </p>
+            <div class="tags-article">
+                <a class="keys-link" href="<%= key.link %>" target="_blank" class="Key-att">Link</a>
+                <p class="Key-att"><%= key.sourceAuthor %></p>
+                    <p>Tags</p>
+                    <% if (key.tags.length == 1) { %>
+                        <% var newArray = key.tags[0].split(', ') %>
+                        <form role="search" action="/search">
+                        <% newArray.forEach(function(tag) { %>
+                                <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
+                        <% }); %>
+                        </form>
+                    
+                    <!-- uncomment code above when issue is resolved  -->
+                    <% } else { %>
+                        
+                        <form role="search" action="/search">                
+                        <% key.tags.forEach(function(tag) { %>
+                                <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
+                        <% }); %>
+                        </form>
+                    
+                    <% } %> 
+            </div>
         </div>
     </div> 
     <% }); %>
 
 </div>
-
+<br><br><br><br><br><br><br>
 <% include ../partials/footer %>

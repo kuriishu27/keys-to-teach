@@ -1,14 +1,18 @@
 <% include ../partials/header %>
 
 <div class='container keys-section' style="margin-top: 100px">
-    <div class='row'>
+    <div class='row' style="position:relative">
         <div class='col-xs-3'>
-            <h2>Tags</h2>
-            <% if (keys.tags.length == 1) { %>
-            <% var newArray = keys.tags[0].split(', ') %>
-            <% newArray.forEach(function(tag) { %>
-                <li class="list-group-item list-hover"><%= tag %></li>
-            <% }); %>
+            <h2>Search by Tags</h2>
+                <form role="search" action="/search">
+                    <% if (keys.tags.length == 1) { %>
+                        <% var newArray = keys.tags[0].split(', ') %>
+                        <% newArray.forEach(function(tag) { %>
+                            <button name="query" type="submit" value="<%= tag %>" class="list-group-item list-hover"><%= tag %></button>
+                        <% }); %>
+
+                </form>
+            
 
         <!-- uncomment code above when issue is resolved  -->
          <% } else { %>
@@ -20,32 +24,35 @@
         <% } %> 
         </div>
         <div class='col-xs-9'>
-            <h2><%= keys.title %></h2>
+            <h2>
+                <%= keys.title %>
+                <% if (currentUser) { %>
+                    <a class='btn btn-warning' style="display: inline" href='/keys/<%= keys._id %>/edit'>Edit</a>
+                    <form style="display: inline" id='delete-form' action='/keys/<%= keys._id %>?_method=DELETE' method='POST'>
+                        <button class='btn btn-danger'>Delete</a>
+                    </form>
+                <% } %>
+            </h2>
             <p><%=keys.description%></p>
 
             <% if(currentUser) { %>
-                
-            
-            <a class='btn btn-warning' href='/keys/<%= keys._id %>/edit'>Edit</a>
-            <form id='delete-form' action='/keys/<%= keys._id %>?_method=DELETE' method='POST'>
-                <button class='btn btn-danger'>Delete</a>
-            </form>
             
             <% } %>
         </div>
-        <div>
+        <div style="position:absolute;bottom:0;right: 0">
             <div class='text-right'>
                 <a class='btn btn-success' href='/keys/<%=keys._id%>/comments/new'>Add New Comment</a>
             </div>
+            <!-- <div class="col-sm-8" style="background: white;">
+                <h1>Piano</h1>
+            </div> -->
             <% keys.comments.forEach(function(comment){ %>
                 <div class='row'>
                     <div class='col-md-12'>
-                        <strong><%= comment.author.username %></strong>
-                        <span class='pull-right'>10 days ago</span>
-                <p>
-                    <%= comment.text %>
-                </p>
-                <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+                        <p>
+                            <%= comment.text %>
+                        </p>
+                <% if(currentUser) { %>
 
                     <a class='btn btn-xs btn-warning' 
                     href='/keyss/<%= keys._id %>/comments/<%= comment._id %>/edit'>

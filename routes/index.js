@@ -30,26 +30,33 @@ router.get('/logout', function(req, res) {
 
 router.get('/', function(req, res, next) {
 
-    var allTags = [];
+    // TO-DO: Implement autocomplete
 
-    Key.aggregate([{ $project: { tags : 1}}, 
+
+    // var allTags = [];
+
+    // Key.aggregate([{ $project: { tags : 1}}, 
         
-        {$group: {_id: null, tags:  { "$addToSet" : "$tags" } } }, 
-        {$unwind: "$tags"}, 
-        {$unwind: "$tags"}, 
-        {$project: {"_id": 0, "tags": "$tags"}}, 
-        {$group: {_id: null, allTags: {$addToSet: "$tags"}}} 
+    //     {$group: {_id: null, tags:  { "$addToSet" : "$tags" } } }, 
+    //     {$unwind: "$tags"}, 
+    //     {$unwind: "$tags"}, 
+    //     {$project: {"_id": 0, "tags": "$tags"}}, 
+    //     {$group: {_id: null, allTags: {$addToSet: "$tags"}}} 
 
-    ], function (err, result) {
-        if (err) {
-            next(err);
-        } else {
-            allTags = result[0].allTags    
-            res.render('index', {
-                allTags: allTags
-            });
-        }
-    });
+    // ], function (err, result) {
+    //     if (err) {
+    //         next(err);
+    //     } else {
+    //         allTags = result[0].allTags    
+    //         res.render('index', {
+    //             allTags: allTags
+    //         });
+    //     }
+    // });
+
+    res.render('index');
+
+
     
 });
 
@@ -89,27 +96,27 @@ router.get("/search", function(req, res) {
             } else {
                 if (result.length > 0) {
                     numItems = result[0].num                    
+                } else {
+                    numItems = 0
                 }
+
+                var cursor = Key
+                .find({ $text: { $search: query } })
+                .sort({"title" : 1 }).stream()
+                .on('data', function(doc){
+                    keys.push(doc);
+                })
+                .on('error', function(err){
+                    assert.equal(err, null);
+                })
+                .on('end', function(){
+                    callback(res.render('search', { 
+                    query: query,
+                    keys: keys,
+                    numItems: numItems }));
+                });
             }
         });
-
-        var cursor = Key
-            .find({ $text: { $search: query } })
-            .sort({"title" : 1 }).stream()
-            .on('data', function(doc){
-                keys.push(doc);
-            })
-            .on('error', function(err){
-                assert.equal(err, null);
-            })
-            .on('end', function(){
-                callback(res.render('search', { 
-                query: query,
-                keys: keys,
-                numItems: numItems }));
-            });
-
-
     }
 
     searchItems(query, function() {
@@ -247,10 +254,11 @@ router.post('/contact', function (req, res) {
 });
 
 router.get('/keys', function(req, res) {
-    Key.find({}, function(err, allKeys){
+    Key.find({}, {}, { sort: {_id: 1} }, function(err, allKeys){
         if(err){
             console.log(err);
         } else {
+            console.log(allKeys);
             res.render('keys/index', {
                 keys: allKeys
             });
