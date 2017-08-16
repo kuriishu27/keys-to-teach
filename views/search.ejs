@@ -3,7 +3,7 @@
 <div style="height: 120px">
     <div class="prelude search-page">
         <h3>Search Results for: "<%= query %>"</h3>
-        <h3>45 results</h3>
+        <h3><%= numItems %> results</h3>
         
         <br>
     </div>
@@ -20,16 +20,20 @@
         <p>Tags</p>
         <% if (key.tags.length == 1) { %>
             <% var newArray = key.tags[0].split(', ') %>
+            <form role="search" action="/search">
             <% newArray.forEach(function(tag) { %>
-                <button class="btn-tags"><%= tag %></button>
+                    <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
             <% }); %>
-
+            </form>
+        
         <!-- uncomment code above when issue is resolved  -->
          <% } else { %>
             
+            <form role="search" action="/search">                
             <% key.tags.forEach(function(tag) { %>
-                <button class="btn-tags"><%= tag %></button>
+                    <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
             <% }); %>
+            </form>
 
         <% } %> 
         </div>
