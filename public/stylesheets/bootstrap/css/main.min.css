@@ -1410,7 +1410,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #ed4e93;
+    color: #8A6033;
     text-decoration: none
 }
 
@@ -8249,12 +8249,14 @@ a.list-group-item-danger.active:focus {
 }
 
 .portfolio-item {
+    position:relative;
     background: rgba(255, 255, 255, .7);
     border-radius: 10px;
     border: 2px solid black;
     box-shadow: 2px 2px 2px black;
     padding: 30px;
     margin-top: 10px;
+    height:430px;
 }
 
 .img-keys {
@@ -8389,6 +8391,14 @@ a.list-group-item-danger.active:focus {
     background-color: #8A6033;
     color: white
 }
+
+.tags-article {
+    position: absolute;
+    bottom: 0;
+    margin-top:10px;
+    margin-bottom:20px
+}
+
 .interest-screen {
     position: fixed;
     background: rgba(0, 0, 0, .7);
@@ -8516,6 +8526,10 @@ div>h2 {
     padding: 30px;
 }
 
+.search-page>h1 {
+    text-align:center;
+}
+
 #contribute-main {
     margin-bottom: 30px
 }
@@ -8539,4 +8553,11 @@ div>h2 {
     margin: 0 20px 5px 20px;
     padding: 3px 0;
     border-bottom: 1px solid #ccc;
-  }
+}
+
+.keys-link {
+    display: block;
+    color:black;
+    font-weight:bold;
+    font-size: 16px;
+}
