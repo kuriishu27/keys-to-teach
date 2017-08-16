@@ -10,6 +10,7 @@
     "env2": "^2.2.0",
     "express": "^4.15.3",
     "express-session": "^1.15.4",
+    "grunt": "^1.0.1",
     "method-override": "^2.3.9",
     "mongoose": "^4.11.4",
     "nodemailer": "^4.0.1",
@@ -46,5 +47,11 @@
   "bugs": {
     "url": "https://github.com/kuriishu27/keys-to-teach/issues"
   },
-  "homepage": "https://github.com/kuriishu27/keys-to-teach#readme"
+  "homepage": "https://github.com/kuriishu27/keys-to-teach#readme",
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }
 }
