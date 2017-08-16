@@ -30,12 +30,15 @@ router.get("/search", function(req, res) {
             { $match: {$text: { $search: query } } }, 
             { $group: {_id: null, num: {$sum: 1}}}
         ], function (err, result) {
-            
+
             if (err) {
                 next(err);
             } else {
+
                 if (result.length > 0) {
                     numItems = result[0].num                    
+                } else {
+                    numItems = 0
                 }
 
                 var cursor = Key
@@ -55,10 +58,6 @@ router.get("/search", function(req, res) {
                 });
             }
         });
-
-        
-
-
     }
 
     searchItems(query, function() {
@@ -67,21 +66,38 @@ router.get("/search", function(req, res) {
 
 });
 
-router.get('/:id/edit', function(req, res) {
-    Key.findById(req.params.id, function(err, foundKey) {
-        res.render('keys/edit', {campground: foundKey});
-    });
-});
-
-router.delete('/', function(req, res) {
-
-
-});
-
 router.get('/:id', function(req, res) {
     Key.findById(req.params.id, function(err, foundKey) {
         res.render('keys/show', {keys: foundKey});
     });
 });
+
+router.get('/:id/edit', function(req, res) {
+    Key.findById(req.params.id, function(err, foundKey) {
+        res.render('keys/edit', {key: foundKey});
+    });
+});
+
+router.put('/:id', middleware.isLoggedIn, function(req, res){
+    Key.findByIdAndUpdate(req.params.id, function(err, foundKey){
+        if(err){
+            res.redirect('/keys');
+        } else {
+            res.redirect('/keys/' + req.params.id);
+        }
+    });
+});
+
+router.delete('/:id', middleware.isLoggedIn, function(req, res){
+    Key.findByIdAndRemove(req.params.id, function(err){
+        if (err){
+            res.redirect('/keys');
+        } else {
+            res.redirect('/keys');
+        }
+    });
+});
+
+
 
 module.exports = router;
