@@ -12,8 +12,10 @@
                     <span style="color: white;" class="copyright">Copyright &copy; Keys to Teach</span>
                 </div>
                 <div class="col-xs-4">
-                    <ul class="list-inline quicklinks">                        <li><a href="https://github.com/kuriishu27">Website by Christian Ray Leovido</a>
-            </li>
+                    <ul class="list-inline quicklinks">                        
+						<li>
+							<a href="https://github.com/kuriishu27">Website by Christian Ray Leovido</a>
+            			</li>
                     </ul>
                 </div>
             </div>
@@ -30,12 +32,43 @@
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
-
+	
     <!-- Typeform survey -->
 
     <script> 
         (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() 
-    </script>
+	</script>
+
+	<!-- <script>
+	
+	var nflTeams = new Bloodhound({
+		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
+		queryTokenizer: Bloodhound.tokenizers.whitespace,
+		identify: function(obj) { return obj.team; },
+		prefetch: '../data/nfl.json'
+	  });
+	  
+	  function nflTeamsWithDefaults(q, sync) {
+		if (q === '') {
+		  sync(nflTeams.get('Detroit Lions', 'Green Bay Packers', 'Chicago Bears'));
+		}
+	  
+		else {
+		  nflTeams.search(q, sync);
+		}
+	  }
+	  
+	  $('#default-suggestions .typeahead').typeahead({
+		minLength: 0,
+		highlight: true
+	  },
+	  {
+		name: 'nfl-teams',
+		display: 'team',
+		source: nflTeamsWithDefaults
+	  });
+
+	</script> -->
     <!-- <script src="../js/classie.js"></script>
     
     <script>
