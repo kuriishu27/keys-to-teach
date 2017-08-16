@@ -15,7 +15,7 @@
         <div class="portfolio-item">
         <h2><a href='/keys/<%= key._id%>' class="single-article"><%= key.title.toUpperCase() %></a></h2>
         <p class="item-att"><%= key.description %></p>
-        <a style="color:#ffd15e;font-weight:bold;font-size: 16px" href="<%= key.link %>" class="Key-att">Link</a>
+        <a style="color:black;font-weight:bold;font-size: 16px" href="<%= key.link %>" target="_blank" class="Key-att">Link</a>
         <p class="Key-att"><%= key.sourceAuthor %></p>
         <p>Tags</p>
         <% if (key.tags.length == 1) { %>
