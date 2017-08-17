@@ -37,6 +37,7 @@ app.use(require('express-session')({
     resave: false,
     saveUninitialized: false
 }));
+app.use(express.static('sitemap'));
 
 app.use(flash());
 
