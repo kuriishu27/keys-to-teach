@@ -41,7 +41,7 @@ app.use(express.static('sitemap'));
 
 app.get('/robots.txt', function (req, res) {
     res.type('text/plain');
-    res.send("User-agent: *\nDisallow: /admin\nSitemap: http://www.keystoteach.com/sitemap.xml\n/public/");
+    res.send("User-agent: *\nDisallow: /admin\nDisallow: /public/*\nSitemap: http://www.keystoteach.com/sitemap.xml");
 });
 
 app.use(flash());
