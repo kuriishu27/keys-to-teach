@@ -14,11 +14,11 @@ router.get('/login', function(req, res) {
 });
 
 // handle login logic
-router.post('/login', passport.authenticate('local', 
-    {
-        successRedirect: '/',
-        failureRedirect: '/login'
-    }), function(req, res) {
+router.post('/login', function(req, res) {
+    passport.authenticate('local')(req, res, function() {
+        req.flash('success', 'Welcome to Keys to Teach ' + req.user.username);
+        res.redirect('/');
+        });
 });
 
 // LOGOUT ROUTE
@@ -264,6 +264,12 @@ router.get('/keys', function(req, res) {
             });
         }
     });
+});
+
+router.get('/logout', function(req, res) {
+    req.logout();
+    req.flash('success', 'Logged you out!');
+    res.redirect('/');
 });
 
 module.exports = router;
