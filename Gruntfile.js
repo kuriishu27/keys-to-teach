@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             tasks: ['concat:js', 'uglify']
           },
           css: {
-            files: ['./public/css/**/*.css'],
+            files: ['./public/stylesheets/**/*.css'],
             tasks: ['concat:css', 'cssmin']
           }
         },
