@@ -21,11 +21,11 @@
             ga('send', 'pageview');
 
         </script>  
-    <link href="../dist/css/main.min.css" rel="stylesheet">
+    <link href="/dist/css/main.min.css" rel="stylesheet">
     <!-- blocking, but what else can ya do? -->
     <!--[if IE]>
-        <link href="../stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="../stylesheets/main.min.css" rel="stylesheet">
+        <link href="/dist/css/main.min.css" rel="stylesheet" type="text/css">
+        <link href="/dist/css/main.min.css" rel="stylesheet">
         -->
     <!-- [endif]-->
   <style>
@@ -33,7 +33,7 @@
   /* General styles for all menus */
 
 .cbp-spmenu {
-	background: #47a3da;
+	background: rgba(0, 0, 0, .6);
 	position: fixed;
 }
 
@@ -43,7 +43,6 @@
 	padding: 20px;
 	margin: 0;
 	font-weight: 300;
-	background: #0d77b6;
 }
 
 .cbp-spmenu a {
@@ -54,12 +53,12 @@
 }
 
 .cbp-spmenu a:hover {
-	background: #258ecd;
+	background: black;
 }
 
 .cbp-spmenu a:active {
-	background: #afdefa;
-	color: #47a3da;
+	background: rgba(255, 255, 255, .4);
+	color: black;
 }
 
 /* Orientation-dependent styles for the content of the menu */
@@ -72,7 +71,7 @@
 }
 
 .cbp-spmenu-vertical a {
-	border-bottom: 1px solid #258ecd;
+    border-bottom: 0.5px dashed white;
 	padding: 1em;
 }
 
@@ -153,9 +152,9 @@
 
 .cbp-spmenu,
 .cbp-spmenu-push {
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
 }
 
 /* Example media queries */
@@ -201,86 +200,27 @@
 </head>
 
 <body id="page-top" class="home cbp-spmenu-push bg">
-    <!--
+    
     <div style="visibility:show">
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
         <h3>Menu</h3>
-        <a href="#">Celery seakale</a>
-        <a href="#">Dulse daikon</a>
-        <a href="#">Zucchini garlic</a>
-        <a href="#">Catsear azuki bean</a>
-        <a href="#">Dandelion bunya</a>
-        <a href="#">Rutabaga</a>
+        <a href="#"><i class="fa fa-user" aria-hidden="true"></i>  Profile</a>        
+        <a href="/addKeys"><i class="fa fa-plus-circle" aria-hidden="true"></i>  Add New Key</a>
+        <a href="#"><i class="fa fa-book" aria-hidden="true"></i>  View comments</a>
+        <a href="mailto:christian.leovido@gmail.com"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>  Report</a>
+        <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>  Logout</a>
     </nav>
-    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-        <h3>Menu</h3>
-        <a href="#">Celery seakale</a>
-        <a href="#">Dulse daikon</a>
-        <a href="#">Zucchini garlic</a>
-        <a href="#">Catsear azuki bean</a>
-        <a href="#">Dandelion bunya</a>
-        <a href="#">Rutabaga</a>
-    </nav>
-    <nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
-        <h3>Menu</h3>
-        <a href="#">Celery seakale</a>
-        <a href="#">Dulse daikon</a>
-        <a href="#">Zucchini garlic</a>
-        <a href="#">Catsear azuki bean</a>
-        <a href="#">Dandelion bunya</a>
-        <a href="#">Rutabaga</a>
-        <a href="#">Celery seakale</a>
-        <a href="#">Dulse daikon</a>
-        <a href="#">Zucchini garlic</a>
-        <a href="#">Catsear azuki bean</a>
-        <a href="#">Dandelion bunya</a>
-        <a href="#">Rutabaga</a>
-    </nav>
-    <nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
-        <h3>Menu</h3>
-        <a href="#">Celery seakale</a>
-        <a href="#">Dulse daikon</a>
-        <a href="#">Zucchini garlic</a>
-        <a href="#">Catsear azuki bean</a>
-        <a href="#">Dandelion bunya</a>
-        <a href="#">Rutabaga</a>
-        <a href="#">Celery seakale</a>
-        <a href="#">Dulse daikon</a>
-        <a href="#">Zucchini garlic</a>
-        <a href="#">Catsear azuki bean</a>
-        <a href="#">Dandelion bunya</a>
-        <a href="#">Rutabaga</a>
-    </nav>
-    </div>
-    <div class="container">
-        <div class="main">
-            <section>
-                <h2>Slide Menus</h2>
-                Class "cbp-spmenu-open" gets applied to menu
-                <button id="showLeft">Show/Hide Left Slide Menu</button>
-                <button id="showRight">Show/Hide Right Slide Menu</button>
-                <button id="showTop">Show/Hide Top Slide Menu</button>
-                <button id="showBottom">Show/Hide Bottom Slide Menu</button>
-            </section>
-            <section class="buttonset">
-                <h2>Push Menus</h2>
-                Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body 
-                <button id="showLeftPush">Show/Hide Left Push Menu</button>
-                <button id="showRightPush">Show/Hide Right Push Menu</button>
-            </section>
-        </div>
     </div>
 
--->
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" style="color: white" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/" style="margin-top:-10px"><img src="../img/ktp_logo_transparent.jpg.png" style="max-width:45px;display:inline-block;margin-right:5px" />Keys to Teach</a>
+                <a class="navbar-brand page-scroll" href="/" style="margin-top:-10px"><img src="/img/ktp_logo_transparent.jpg.png" style="max-width:45px;display:inline-block;margin-right:5px" />Keys to Teach</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -289,11 +229,6 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <!-- <% if(currentUser) { %>
-                        <li>
-                            <a><button style="border: 0;background:black; color: white" id="showLeftPush">Slide</button></a>
-                        </li>
-                    <% } %> -->
                     <li>
                         <a class="page-scroll" href="/">Home</a>
                     </li>
@@ -313,8 +248,8 @@
                         <a class="page-scroll" href="/contact">Contact</a>
                     </li>
                     <% if(currentUser) { %>
-                        <li><a href='#'>Signed in as <%= currentUser.username %></a></li>
-                        <li><a class="link-new-add" href='/addKeys'>Add New Key<i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        <li><a style="cursor:pointer" id="showLeft"><i class="fa fa-user" aria-hidden="true"></i>    <%= currentUser.username %></a></li>
+                        <!-- <li><a class="link-new-add" href='/addKeys'>Add New Key<i class="fa fa-plus-circle" aria-hidden="true"></i> -->
                         </a></li>
                     <% } %>
                 </ul>
@@ -323,3 +258,22 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+
+    <div class='container' style="margin-top: 100px">
+        <% if (error && error.length > 0) { %>
+        
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        
+        <% } %>
+        <% if (success && success.length > 0) { %>
+
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+            
+        <% } %>
+        
+        
+    </div>
