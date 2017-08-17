@@ -1,6 +1,5 @@
 var express = require('express'),
     app = express(),
-    sitemap = require('express-sitemap')(),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     passport = require('passport'),
@@ -11,6 +10,8 @@ var express = require('express'),
     User = require('./models/users'),
     methodOverride = require('method-override'),
     flash = require('connect-flash')
+
+var sitemap = require('express-sitemap')()
 
 const env = require('env2')('env.json');
 
@@ -24,7 +25,6 @@ var url = process.env.DATABASEURL;
 
 mongoose.connect(url);
 
-sitemap.generate(app);
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -66,6 +66,8 @@ app.use(function(req, res, next) {
 
 var indexRoutes = require('./routes/index')
 app.use('/', indexRoutes);
+
+sitemap.generate(app);
 
 var PORT = 8080;
 app.listen(process.env.PORT || PORT, process.env.IP, function() {
