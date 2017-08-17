@@ -72,7 +72,7 @@ router.get('/:id', function(req, res) {
     });
 });
 
-router.get('/:id/edit', function(req, res) {
+router.get('/:id/edit', middleware.isLoggedIn, function(req, res) {
     Key.findById(req.params.id, function(err, foundKey) {
         res.render('keys/edit', {key: foundKey});
     });
