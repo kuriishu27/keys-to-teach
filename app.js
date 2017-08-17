@@ -1,5 +1,6 @@
 var express = require('express'),
     app = express(),
+    sitemap = require('express-sitemap')(),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     passport = require('passport'),
@@ -22,6 +23,8 @@ mongoose.promise = global.Promise;
 var url = process.env.DATABASEURL;
 
 mongoose.connect(url);
+
+sitemap.generate(app);
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
