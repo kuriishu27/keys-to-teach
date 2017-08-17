@@ -39,6 +39,11 @@ app.use(require('express-session')({
 }));
 app.use(express.static('sitemap'));
 
+app.get('/robots.txt', function (req, res) {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow: /admin\nSitemap: http://www.keystoteach.com/sitemap.xml\n/public/");
+});
+
 app.use(flash());
 
 app.use(passport.initialize());
