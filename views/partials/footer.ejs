@@ -22,7 +22,7 @@
         </div>
 
     <!-- Plugin JavaScript -->
-	<script src="../dist/js/scripts.min.js"></script>
+	<script src="/dist/js/scripts.min.js"></script>
 	
     <!-- Typeform survey -->
     <script> 
@@ -59,7 +59,7 @@
 	  });
 
 	</script> -->
-    <!-- <script src="../js/classie.js"></script>
+    <script src="../js/classie.js"></script>
     
     <script>
     
@@ -76,11 +76,13 @@
 		body = document.body;
 
 showLeft.onclick = function() {
+	console.log('left');
 	classie.toggle( this, 'active' );
 	classie.toggle( menuLeft, 'cbp-spmenu-open' );
 	disableOther( 'showLeft' );
 };
 showRight.onclick = function() {
+	console.log("working");
 	classie.toggle( this, 'active' );
 	classie.toggle( menuRight, 'cbp-spmenu-open' );
 	disableOther( 'showRight' );
@@ -129,7 +131,7 @@ function disableOther( button ) {
 	}
 }
 
-    </script> -->
+    </script>
 
     <script>
         html = html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
