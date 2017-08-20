@@ -33,31 +33,28 @@ router.get('/', function(req, res, next) {
     // TO-DO: Implement autocomplete
 
 
-    // var allTags = [];
+    var allTags = [];
 
-    // Key.aggregate([{ $project: { tags : 1}}, 
+    Key.aggregate([{ $project: { tags : 1}}, 
         
-    //     {$group: {_id: null, tags:  { "$addToSet" : "$tags" } } }, 
-    //     {$unwind: "$tags"}, 
-    //     {$unwind: "$tags"}, 
-    //     {$project: {"_id": 0, "tags": "$tags"}}, 
-    //     {$group: {_id: null, allTags: {$addToSet: "$tags"}}} 
+        {$group: {_id: null, tags:  { "$addToSet" : "$tags" } } }, 
+        {$unwind: "$tags"}, 
+        {$unwind: "$tags"}, 
+        {$project: {"_id": 0, "tags": "$tags"}}, 
+        {$group: {_id: null, allTags: {$addToSet: "$tags"}}} 
 
-    // ], function (err, result) {
-    //     if (err) {
-    //         next(err);
-    //     } else {
-    //         allTags = result[0].allTags    
-    //         res.render('index', {
-    //             allTags: allTags
-    //         });
-    //     }
-    // });
+    ], function (err, result) {
+        if (err) {
+            next(err);
+        } else {
+            allTags = result[0].allTags    
+            console.log(allTags);
+            res.render('index', {
+                allTags: allTags
+            });
+        }
+    });
 
-    res.render('index');
-
-
-    
 });
 
 router.get('/contact', function(req, res, next) {
