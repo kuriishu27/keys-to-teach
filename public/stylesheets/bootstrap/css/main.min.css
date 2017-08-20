@@ -8258,10 +8258,8 @@ a.list-group-item-danger.active:focus {
 
 .portfolio-item {
     position:relative;
-    background: rgba(255, 255, 255, .7);
-    border-radius: 10px;
-    border: 2px solid black;
-    box-shadow: 2px 2px 2px black;
+    background: rgba(255, 255, 255, .8);
+    border: 1px solid black;
     padding: 30px;
     margin-top: 10px;
     height:430px;
@@ -8527,20 +8525,11 @@ div>h2 {
 }
 #landing-header>div, #about>div, #survey>div, .contribute>.contribute2, .contribute>.contribute-section, .contact-form, .keys-section {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 60px
+    padding: 60px;
 }
 
 #landing-header {
     margin-top: -40px;
-}
-
-.search-page {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 30px;
-}
-
-.search-page>h1 {
-    text-align:center;
 }
 
 #contribute-main {
