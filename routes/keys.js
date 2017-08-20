@@ -4,6 +4,28 @@ var Key = require('../models/keys');
 var middleware = require('../middleware');
 
 router.get('/', function(req, res) {
+
+    var allTags = [];
+
+    Key.aggregate([{ $project: { tags : 1}}, 
+        
+        {$group: {_id: null, tags:  { "$addToSet" : "$tags" } } }, 
+        {$unwind: "$tags"}, 
+        {$unwind: "$tags"}, 
+        {$project: {"_id": 0, "tags": "$tags"}}, 
+        {$group: {_id: null, allTags: {$addToSet: "$tags"}}} 
+
+    ], function (err, result) {
+        if (err) {
+            next(err);
+        } else {
+            allTags = result[0].allTags  
+            // console.log(allTags);  
+            // res.render('index', {
+            //     allTags: allTags
+            // });
+        }
+    });
     Key.find({}, function(err, allKeys){
         if(err){
             console.log(err);
