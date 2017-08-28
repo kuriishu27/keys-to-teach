@@ -8304,9 +8304,8 @@ a.list-group-item-danger.active:focus {
 @media (max-width:768px) {
     .footer {
         font-size: 10px;
-        position: absolute;
+        position: relative;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
         text-align: center;
         height: 60px;
         line-height: 60px;
@@ -8324,7 +8323,6 @@ a.list-group-item-danger.active:focus {
         bottom: 0;
         left: 0;
         padding: 1rem;
-        background: rgba(0, 0, 0, 0.5);
         text-align: center;
         max-height: 100px;
         line-height: 100px;
