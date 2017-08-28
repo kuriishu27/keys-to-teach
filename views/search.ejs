@@ -1,15 +1,16 @@
 <% include ./partials/header %>
 
-<div style="height: 120px">
-    <div class="prelude search-page">
-        <h3>Search Results for: "<%= query %>"</h3>
-        <h3><%= numItems %> results</h3>
-        
-        <br>
+<div class="container search-page">
+    <div style="height: 150px;">
+        <div class="prelude">
+            <h3>Search Results for: "<%= query %>"</h3>
+            <h3><%= numItems %> results</h3>
+            <br>
+        </div>
     </div>
-</div>
 
-<div class="container" style="margin: 100px auto">
+
+<div style="margin: 100px auto">
      <% keys.forEach(function(key){ %>
     <div class="clearfix col-xs-12 col-sm-6">
         <div class="portfolio-item">
@@ -20,24 +21,29 @@
         <p class="item-att"><%= key.description.substring(0, 200) + "..." %><a class="keys-link" href='/keys/<%= key._id%>'>Read more</a>
         </p>
             <div class="tags-article">
-                <a class="keys-link" href="<%= key.link %>" target="_blank" class="Key-att">Link</a>
-                <p class="Key-att"><%= key.sourceAuthor %></p>
-                <p>Tags</p>
                 <% if (key.tags.length == 1) { %>
                     <% var newArray = key.tags[0].split(', ') %>
                     <form role="search" action="/search">
+                        <p class="tags">Tags</p>                                            
                     <% newArray.forEach(function(tag) { %>
-                            <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
+                        <div class="tags">
+                                <%= tag %>
+                            </div>
                     <% }); %>
                     </form>
                 
                 <!-- uncomment code above when issue is resolved  -->
                 <% } else { %>
                     
-                    <form role="search" action="/search">                
+                    <form role="search" action="/search">
+                        <p class="tags">Tags
+                <a class="keys-link" href="<%= key.link %>" target="_blank" class="Key-att">Link</a>
+                <p class="Key-att"><%= key.sourceAuthor %></p>            
                     <% key.tags.forEach(function(tag) { %>
-                            <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
-                    <% }); %>
+                        <div class="tags">
+                                <%= tag %>
+                            </div>
+                        <% }); %>
                     </form>
 
                 <% } %> 
