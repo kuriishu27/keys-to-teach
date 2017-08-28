@@ -1,31 +1,33 @@
 <% include ../partials/header %>
 
-<div class='container keys-section'>
-    <div class='row' style="position:relative">
-        <div class='col-xs-3'>
-            <h2>Search by Tags</h2>
+    <div class='container keys-section'>
+        <div class='row' style="position:relative">
+            <div class='col-xs-3'>
+                <h2>Search by Tags</h2>
                 <form role="search" action="/search">
                     <% if (keys.tags.length == 1) { %>
                         <% var newArray = keys.tags[0].split(', ') %>
-                        <% newArray.forEach(function(tag) { %>
-                            <button name="query" type="submit" value="<%= tag %>" class="list-group-item list-hover"><%= tag %></button>
-                        <% }); %>
+                            <% newArray.forEach(function(tag) { %>
+                                <button name="query" type="submit" value="<%= tag %>" class="list-group-item list-hover"><%= tag %></button>
+                                <% }); %>
                 </form>
-        <!-- uncomment code above when issue is resolved  -->
-         <% } else { %>
-            <% keys.tags.forEach(function(tag) { %>
-                <li class="list-group-item"><%= tag %></li>
-            <% }); %>
+                <!-- uncomment code above when issue is resolved  -->
+                <% } else { %>
+                    <% keys.tags.forEach(function(tag) { %>
+                        <li class="list-group-item">
+                            <%= tag %>
+                        </li>
+                        <% }); %>
 
-        <% } %> 
-        </div>
-        <div class='col-xs-9'>
-            <h2>
-                <%= keys.title %>
-                <% if (currentUser) { %>
-                    <a class='btn btn-warning' style="display: inline" href='/keys/<%= keys._id %>/edit'>Edit</a>
-                    <form style="display: inline" id='delete-form' action='/keys/<%= keys._id %>?_method=DELETE' method='POST'>
-                        <button class='btn btn-danger'>Delete</a>
+                            <% } %>
+            </div>
+            <div class='col-xs-9'>
+                <h2>
+                    <%= keys.title %>
+                        <% if (currentUser) { %>
+                            <a class='btn btn-warning' style="display: inline" href='/keys/<%= keys._id %>/edit'>Edit</a>
+                            <form style="display: inline" id='delete-form' action='/keys/<%= keys._id %>?_method=DELETE' method='POST'>
+                                <button class='btn btn-danger'>Delete</a>
                     </form>
                 <% } %>
             </h2>
@@ -33,49 +35,77 @@
 
             <a class="keys-link" href="<%= keys.link %>" target="_blank" class="Key-att">Link</a>
             <p class="Key-att"><%= keys.sourceAuthor %></p>
-            <% if(currentUser) { %>
-            
-            <% } %>
+            </div>
+        </div>
 
-                                <h4>Add a Comment:</h4>
-                                <form action="/item/{{item._id}}/reviews" role="form" method="post">
-                                  <div class="form-group">
-                                    <label for="review">Comment:</label>
-                                    <textarea name="review" class="form-control" rows="3"></textarea>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="name">Name:</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter display name">
-                                  </div>
-                                  <button type="submit" class='btn btn-success' href='/keys/<%=keys._id%>/comments/new'>Add New Comment</button>                                  
-                                  <!-- <button type="submit" class="btn btn-primary">Submit Review</button> -->
-                                </form>
-        <div style="position:absolute;bottom:0;right: 0">
-            <!-- <div class="col-sm-8" style="background: white;">
-                <h1>Piano</h1>
-            </div> -->
-            <% keys.comments.forEach(function(comment){ %>
-                <div class='row'>
-                    <div class='col-md-12'>
-                        <p>
-                            <%= comment.text %>
-                        </p>
+        <div>
+            <!-- Related Products Row -->
+        <div class="row">
+                
+                <div class="col-lg-12">
+                  <h3 class="page-header">Latest Comments</h3>
+                </div>
                 <% if(currentUser) { %>
-
-                    <a class='btn btn-xs btn-warning' 
-                    href='/keyss/<%= keys._id %>/comments/<%= comment._id %>/edit'>
+                    <a class='btn btn-xs btn-warning' href='/keys/<%= keys._id %>/comments/<%= comment._id %>/edit'>
                     Edit
                     </a>
-                    <form id='delete-form' action='/keyss/<%= keys._id %>/comments/<%= comment._id %>?_method=DELETE' method='POST'>
+                    <form id='delete-form' action='/keys/<%= keys._id %>/comments/<%= comment._id %>?_method=DELETE' method='POST'>
                         <input type='submit' class='btn btn-xs btn-danger' value='Delete'>
                     </form>
                 <% } %>
-                    </div>
-                </div>
-            <% }) %>
-        </div>
-        </div>
-    </div>
-</div>
 
-<% include ../partials/footer %>
+                <% if (keys.comments.length > 0) { %>
+
+                    <div class="col-lg-12">
+                            
+                    <% keys.comments.forEach(function(comment) { %>
+                                            
+                            <div>
+                            <h4 class="media-heading" style="font-weight: 600">
+                                <%= comment.author %>
+                                <small style="color: rgba(0,0,0,0.8)"><%= comment.date %></small>                                
+                            </h4>
+                                <%= comment.text %>
+                            </div>
+                            <hr />
+                            
+                            <% }); %>
+                            
+                        </div>
+                        
+                        </div>
+                    </div>
+
+                <% } else { %>
+                    <div class="col-lg-12" style="margin-bottom: 40px">
+                            <h3>No Comments! Be the first one to write one!</h3>                            
+                    </div>
+
+
+                <% } %>
+
+                
+                
+                <div style="margin-top: 60px;">
+                        <h4>Add a Comment:</h4>
+                        <form action="/keys/<%= keys._id %>/comments" role="form" method="post">
+                          <div class="form-group">
+                            <label for="text">Comment:</label>
+                            <textarea name="comment[text]" class="form-control" rows="3"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="comment[author]" placeholder="Enter display name">
+                          </div>
+                          <button type="submit" class='btn btn-tags'>Add New Comment</button>
+                    </form>
+                    </div>
+              </div>
+
+        </div>
+
+        
+        
+    </div>
+
+    <% include ../partials/footer %>
