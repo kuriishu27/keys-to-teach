@@ -8386,10 +8386,9 @@ a.list-group-item-danger.active:focus {
     max-width: 250px;
     height: auto;
     font-weight: bold;
-    border-radius: 25px;
-    border: 2px solid #8A6033;
-    background-color: transparent;
-    color: #8A6033;
+    border: 2px solid #002E5D;
+    background-color: #002E5D;
+    color: white;
     transition: all 300ms ease-in-out;
 }
 
@@ -8398,16 +8397,14 @@ a.list-group-item-danger.active:focus {
 }
 
 .btn-tags:hover {
-    border-radius: 25px;
-    border: 2px solid #8A6033;
-    background-color: #8A6033;
+    border: 2px solid #2B6CA3;
+    background-color: #2B6CA3;
     color: white
 }
 
 .btn-tags:focus {
-    border-radius: 15px;
-    border: 2px solid #8A6033;
-    background-color: #8A6033;
+    border: 2px solid #2B6CA3;
+    background-color: #2B6CA3;
     color: white
 }
 
