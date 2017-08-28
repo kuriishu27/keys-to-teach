@@ -8408,6 +8408,11 @@ a.list-group-item-danger.active:focus {
     color: white
 }
 
+.tags {
+    display: inline-block;
+    padding-right:5px
+}
+
 .tags-article {
     position: absolute;
     bottom: 0;
