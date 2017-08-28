@@ -8575,3 +8575,8 @@ div>h2 {
     font-weight:bold;
     font-size: 16px;
 }
+
+.h-custom {
+    font-weight: 200;
+    font-family: 'soho-w01-thin-condensed,soho-w02-thin-condensed,serif'
+}
