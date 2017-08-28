@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<div class='container keys-section' style="margin-top: 100px">
+<div class='container keys-section'>
     <div class='row' style="position:relative">
         <div class='col-xs-3'>
             <h2>Search by Tags</h2>
@@ -10,13 +10,9 @@
                         <% newArray.forEach(function(tag) { %>
                             <button name="query" type="submit" value="<%= tag %>" class="list-group-item list-hover"><%= tag %></button>
                         <% }); %>
-
                 </form>
-            
-
         <!-- uncomment code above when issue is resolved  -->
          <% } else { %>
-            
             <% keys.tags.forEach(function(tag) { %>
                 <li class="list-group-item"><%= tag %></li>
             <% }); %>
@@ -35,14 +31,13 @@
             </h2>
             <p><%=keys.description%></p>
 
+            <a class="keys-link" href="<%= keys.link %>" target="_blank" class="Key-att">Link</a>
+            <p class="Key-att"><%= keys.sourceAuthor %></p>
             <% if(currentUser) { %>
             
             <% } %>
         </div>
         <div style="position:absolute;bottom:0;right: 0">
-            <div class='text-right'>
-                <a class='btn btn-success' href='/keys/<%=keys._id%>/comments/new'>Add New Comment</a>
-            </div>
             <!-- <div class="col-sm-8" style="background: white;">
                 <h1>Piano</h1>
             </div> -->
