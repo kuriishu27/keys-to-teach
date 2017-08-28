@@ -5016,7 +5016,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 .navbar {
     position: relative;
-    min-height: 50px;
+    min-height: 100px;
     margin-bottom: 21px;
     border: 1px solid transparent
 }
@@ -5393,8 +5393,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default {
-    background-color: #222;
-    border-color: #121212
+    background-color: transparent;
 }
 
 .navbar-default .navbar-brand {
@@ -8305,9 +8304,8 @@ a.list-group-item-danger.active:focus {
 @media (max-width:768px) {
     .footer {
         font-size: 10px;
-        position: absolute;
+        position: relative;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
         text-align: center;
         height: 60px;
         line-height: 60px;
@@ -8325,7 +8323,6 @@ a.list-group-item-danger.active:focus {
         bottom: 0;
         left: 0;
         padding: 1rem;
-        background: rgba(0, 0, 0, 0.5);
         text-align: center;
         max-height: 100px;
         line-height: 100px;
