@@ -29,12 +29,11 @@ router.post('/', function(req, res){
             Comment.create(req.body.comment, function(err, comment){
                 if(err){
                     console.log('There is an error');
-
                     console.log(err);
                 } else {
-                    // username and id to comment
-                    comment.author.id = req.user._id;
-                    comment.author.username = req.user.username;
+
+                    comment.author = req.body.comment.author
+                    comment.date = Date()
                     // save comment
                     comment.save();
                     Key.comments.push(comment);
