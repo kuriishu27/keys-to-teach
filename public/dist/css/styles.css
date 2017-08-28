@@ -8307,11 +8307,10 @@ a.list-group-item-danger.active:focus {
         font-size: 10px;
         position: absolute;
         bottom: 0;
-        background: black;
+        background: rgba(0, 0, 0, 0.5);
         text-align: center;
-        max-height: 60px;
+        height: 60px;
         line-height: 60px;
-        box-shadow: 0 60px 0 60px #000;
         right: 0;
         bottom: 0;
         left: 0;
@@ -8326,11 +8325,10 @@ a.list-group-item-danger.active:focus {
         bottom: 0;
         left: 0;
         padding: 1rem;
-        background: black;
+        background: rgba(0, 0, 0, 0.5);
         text-align: center;
         max-height: 100px;
         line-height: 100px;
-        box-shadow: 0 200px 0 200px #000;
     }
 }
 
@@ -8503,7 +8501,7 @@ section>h1 {
 }
 
 .bold {
-    font-weight: bold;
+    font-weight: 200;
     text-align: center;
     margin-bottom: 30px;
 }
