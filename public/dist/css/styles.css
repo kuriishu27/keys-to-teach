@@ -8537,7 +8537,7 @@ div>h2 {
     margin-top: 50px;
     margin-bottom: 30px
 }
-#landing-header>div, #about>div, #survey>div, .contribute>.contribute2, .contribute>.contribute-section, .contact-form, .keys-section {
+#landing-header>div, #about>div, #survey>div, .contribute>.contribute2, .search-page, .contribute>.contribute-section, .contact-form, .keys-section {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 60px;
 }
