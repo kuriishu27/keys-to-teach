@@ -8258,11 +8258,23 @@ a.list-group-item-danger.active:focus {
 
 .portfolio-item {
     position:relative;
-    background: rgba(255, 255, 255, .8);
+    background: rgba(128, 128, 128, 0.2);
     border: 1px solid black;
-    padding: 30px;
+    padding-left: 20px;
     margin-top: 10px;
-    height:430px;
+    height:300px;
+}
+
+@media (max-width: 768px) {
+    .portfolio-item {
+        height:250px;
+    }
+}
+
+@media (max-width: 996px) {
+    .portfolio-item {
+        height: 300px;
+    }
 }
 
 .img-keys {
