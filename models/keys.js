@@ -8,8 +8,9 @@ var keysSchema = new mongoose.Schema({
     contributor: String,
     comments: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Comment"
+            text: String,
+            author: String,
+            date: Date
         }
     ],
     tags: [String],
