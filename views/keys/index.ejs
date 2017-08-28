@@ -1,12 +1,16 @@
 <% include ../partials/header %>
 
-<div class="container keys-section" style="margin-top:50px">
-    <!-- <div class="prelude"> -->
+    <div class="container keys-section" style="margin-top:50px">
+        <!-- <div class="prelude"> -->
         <h1 class="text-center">Keys</h1>
         <h3>HOW TO USE SEARCH THE SEARCH BAR</h3>
-        <p>To find the collection go to the search bar above (or in the "Keys" section in the navigation bar) and type your key word(s) (eg. wrist, posture, music game) and press enter. A list of relevant "keys" will appear below for you to start using during your individual piano lessons.
-        If you did not find what you were looking for, please try a different key word or make sure it is correctly spelled. If you still can't find it, please let me know what kind of teaching strategy you are looking for by sending me a message using the contact form in the "contact" section (navigation bar)
-        You are also invited to contribute to this website by sharing your own strategies in the "contribution" section.</p>
+        <p>To find the collection go to the search bar above (or in the "Keys" section in the navigation bar) and type your
+            key word(s) (eg. wrist, posture, music game) and press enter. A list of relevant "keys" will appear below for
+            you to start using during your individual piano lessons. If you did not find what you were looking for, please
+            try a different key word or make sure it is correctly spelled. If you still can't find it, please let me know
+            what kind of teaching strategy you are looking for by sending me a message using the contact form in the "contact"
+            section (navigation bar) You are also invited to contribute to this website by sharing your own strategies in
+            the "contribution" section.</p>
         <div class="col-xs-12 col-sm-2">
             <img src="/img/landing1.png" class="img-responsive" style="display:inline-block;width:120px" alt="Keys to teach logo">
         </div>
@@ -14,11 +18,11 @@
             <div class="input-group stylish-input-group" style="display:inline-block;">
                 <form role="search" action="/search">
                     <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control typeahead" name="query" placeholder="Search" >
+                        <input type="text" class="form-control typeahead" name="query" placeholder="Search">
                         <span class="input-group-addon">
                             <button type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
-                            </button>  
+                        </button>
                         </span>
                     </div>
                 </form>
@@ -27,59 +31,63 @@
         <div class="col-sm-2">
             <button class="btn btn-primary">Contribute</button>
         </div>
-        
-        <br>
-    <!-- </div> -->
-</div>
 
-<div class="container" style="margin: 20px auto">
-    <div class="row">
-        <div class="col-sm-9">
+        <br>
+        <!-- </div> -->
+
+    <div  style="margin: 100px auto">
+        <div class="row">
+            <div class="col-xs-8 col-sm-9">
                 <% keys.forEach(function(key){ %>
                     <div class="clearfix col-xs-12 col-sm-6">
                         <div class="portfolio-item">
-                        <h2>
-                            <a href='/keys/<%= key._id%>' class="single-article"><%= key.title.toUpperCase() %></a>
-                        </h2>
-                        <p class="item-att"><%= key.description.substring(0, 200) + "..." %><a class="keys-link" href='/keys/<%= key._id%>'>Read more</a>
-                        </p>
+                            <h2>
+                                <a href='/keys/<%= key._id%>' class="single-article">
+                                    <%= key.title.toUpperCase() %>
+                                </a>
+                            </h2>
+                            <p class="item-att">
+                                <%= key.description.substring(0, 200) + "..." %><a class="keys-link" href='/keys/<%= key._id%>'>Read more</a>
+                            </p>
                             <div class="tags-article">
-                                <a class="keys-link" href="<%= key.link %>" target="_blank" class="Key-att">Link</a>
-                                <p class="Key-att"><%= key.sourceAuthor %></p>
-                                    <p>Tags</p>
-                                    <% if (key.tags.length == 1) { %>
-                                        <% var newArray = key.tags[0].split(', ') %>
+                                <% if (key.tags.length == 1) { %>
+                                    <% var newArray = key.tags[0].split(', ') %>
                                         <form role="search" action="/search">
-                                        <% newArray.forEach(function(tag) { %>
-                                                <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
-                                        <% }); %>
+                                            <p class="tags">Tags</p>                                                                                                                                        
+                                            <% newArray.forEach(function(tag) { %>
+                                                <p class="tags"><%= tag %></p>
+                                                <% }); %>
                                         </form>
-                                    
-                                    <!-- uncomment code above when issue is resolved  -->
-                                    <% } else { %>
-                                        
-                                        <form role="search" action="/search">                
-                                        <% key.tags.forEach(function(tag) { %>
-                                                <button type="submit" name="query" value="<%= tag %>" class="btn-tags"><%= tag %></button>
-                                        <% }); %>
-                                        </form>
-                                    
-                                    <% } %> 
+
+                                        <!-- uncomment code above when issue is resolved  -->
+                                        <% } else { %>
+
+                                            <form role="search" action="/search">
+                                                <% key.tags.forEach(function(tag) { %>
+                                                    <div class="tags">
+                                                            <%= tag %>
+                                                        </div>
+                                                    <% }); %>
+                                            </form>
+
+                                            <% } %>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     <% }); %>
+            </div>
+            <div class="col-xs-4 col-sm-3">
+                <div class="portfolio-item">
+                    <h3 style="border-top: 1px solid black;border-bottom: 1px solid black;padding: 5px">Search by Tags</h3>
+                    <%# allTags.forEach(function(tag) { %>
+                        <button type="submit" name="query" value="<%# tag %>" class="btn-tags"><%# tag %></button>
+                        <%# }); %>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-3 portfolio-item">
-            <h3 style="border-top: 1px solid black;border-bottom: 1px solid black;padding: 5px">Search by Tags</h3>
-            <%# allTags.forEach(function(tag) { %>
-                <button type="submit" name="query" value="<%# tag %>" class="btn-tags"><%# tag %></button>                
-            <%# }); %>
-        </div>
-    </div>
-    
-    
 
-</div>
-<br><br><br><br><br><br><br>
-<% include ../partials/footer %>
+
+
+    </div>
+    <br><br><br><br><br><br><br>
+    <% include ../partials/footer %>
