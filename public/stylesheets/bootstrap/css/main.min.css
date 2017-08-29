@@ -8276,6 +8276,21 @@ a.list-group-item-danger.active:focus {
     }
 }
 
+.link-tags {
+    color: black;
+    padding: 5px
+}
+
+.link-tags:hover {
+    color: black;
+    transition: all 300ms ease-in;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    background: #002E5D;
+
+}
+
 .img-keys {
     max-width: 100%;
     max-height: 300px;
