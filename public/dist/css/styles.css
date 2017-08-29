@@ -8270,10 +8270,25 @@ a.list-group-item-danger.active:focus {
     }
 }
 
-@media (max-width: 996px) {
+@media (min-width: 997px) {
     .portfolio-item {
-        height: 300px;
+        height: 410px;
     }
+}
+
+.link-tags {
+    color: black;
+    padding: 5px
+}
+
+.link-tags:hover {
+    color: black;
+    transition: all 300ms ease-in;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    background: #002E5D;
+
 }
 
 .img-keys {
@@ -8574,8 +8589,12 @@ div>h2 {
 }
 
 .h-custom {
-    font-weight: 200;
-    font-family: 'soho-w01-thin-condensed,soho-w02-thin-condensed,serif'
+    font-weight: 100;
+    font-size: 50px;
+    font-family: 'soho-w01-thin-condensed,soho-w02-thin-condensed,serif';
+    text-align: center;
+    padding: 30px;
+    text-transform: uppercase
 }
 
 .navbar-fixed-top.scrolled {
@@ -8586,6 +8605,42 @@ div>h2 {
   .navbar-fixed-top.scrolled .nav-link {
     color:#555;
   }
+
+.spacing-keys-button {
+    margin-top: 35px;
+}
+
+.spacing-keys-search {
+    max-width: 350px;
+    display:block;
+    margin: 0 auto;
+    padding-top: 35px
+}
+
+@media (max-width: 768px){ 
+    .spacing-keys-button {
+        display: block;
+        margin: 10px auto
+    }
+    
+    .spacing-keys-search {
+        max-width: 250px;
+        display:block;
+        margin: 10px auto;
+    }
+}
+
+.keys-section-logo {
+    display:inline-block;
+    width:120px;
+}
+@media (max-width: 768px) {
+    .keys-section-logo {
+        display: none;
+        margin: 10px;
+    }
+}
+
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
