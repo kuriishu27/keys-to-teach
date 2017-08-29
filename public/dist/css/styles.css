@@ -8272,13 +8272,13 @@ a.list-group-item-danger.active:focus {
 
 @media (max-width: 996px) {
     .portfolio-item {
-        height: 300px;
+        height: 250px;
     }
 }
 
 @media (min-width: 997px) {
     .portfolio-item {
-        height: 250px;
+        height: 300px;
     }
 }
 

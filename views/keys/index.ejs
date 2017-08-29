@@ -41,11 +41,11 @@
                 <% keys.forEach(function(key){ %>
                     <div class="clearfix col-xs-12 col-md-6">
                         <div class="portfolio-item">
-                            <h2>
+                            <h3>
                                 <a href='/keys/<%= key._id%>' class="single-article">
                                     <%= key.title.toUpperCase() %>
                                 </a>
-                            </h2>
+                            </h3>
                             <p class="item-att">
                                 <%= key.description.substring(0, 200) + "..." %><a class="keys-link" style="display: block;margin: 0 auto;" href='/keys/<%= key._id%>'>Read more</a>
                             </p>
