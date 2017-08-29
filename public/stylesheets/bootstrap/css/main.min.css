@@ -8605,3 +8605,38 @@ div>h2 {
   .navbar-fixed-top.scrolled .nav-link {
     color:#555;
   }
+
+.spacing-keys-button {
+    margin-top: 35px;
+}
+
+.spacing-keys-search {
+    max-width: 350px;
+    display:block;
+    margin: 0 auto;
+    padding-top: 35px
+}
+
+@media (max-width: 768px){ 
+    .spacing-keys-button {
+        display: block;
+        margin: 10px auto
+    }
+    
+    .spacing-keys-search {
+        max-width: 250px;
+        display:block;
+        margin: 10px auto;
+    }
+}
+
+.keys-section-logo {
+    display:inline-block;
+    width:120px;
+}
+@media (max-width: 768px) {
+    .keys-section-logo {
+        display: none;
+        margin: 10px;
+    }
+}
