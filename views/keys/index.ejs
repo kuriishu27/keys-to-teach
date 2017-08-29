@@ -55,32 +55,30 @@
                                         <form role="search" action="/search">
                                             <p class="tags">Tags</p>                                                                                                                                        
                                             <% newArray.forEach(function(tag) { %>
-                                                <p class="tags"><%= tag %></p>
+                                                <a href="/search?query=<%=tag%>" class="tags link-tags"><%= tag %></a>
                                                 <% }); %>
                                         </form>
 
                                         <!-- uncomment code above when issue is resolved  -->
-                                        <% } else { %>
+                                <% } else { %>
 
-                                            <form role="search" action="/search">
-                                                <% key.tags.forEach(function(tag) { %>
-                                                    <div class="tags">
-                                                            <%= tag %>
-                                                        </div>
-                                                    <% }); %>
-                                            </form>
+                                <form role="search" action="/search">
+                                    <% key.tags.forEach(function(tag) { %>
+                                        <a href="/search?query=<%=tag%>" class="tags link-tags"><%= tag %></a>                                        
+                                    <% }); %>
+                                </form>
 
-                                            <% } %>
+                                <% } %>
                             </div>
                         </div>
                     </div>
                     <% }); %>
             </div>
             <div class="col-xs-4 col-sm-3">
-                    <h3 style="border-top: 1px solid black;border-bottom: 1px solid black;padding: 5px">Search by Tags</h3>
-                    <%# allTags.forEach(function(tag) { %>
-                        <button type="submit" name="query" value="<%# tag %>" class="btn-tags"><%# tag %></button>
-                        <%# }); %>
+                <h3 style="border-top: 1px solid black;border-bottom: 1px solid black;padding: 5px">Search by Tags</h3>
+                <% allTags.forEach(function(tag) { %>
+                    <button type="submit" name="query" value="<% tag %>" class="btn-tags"><% tag %></button>
+                    <% }); %>
             </div>
         </div>
 
