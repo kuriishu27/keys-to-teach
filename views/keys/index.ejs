@@ -37,7 +37,7 @@
 
     <div  style="margin: 100px auto">
         <div class="row">
-            <div class="col-xs-8 col-sm-9">
+            <div class="col-xs-12 col-sm-9">
                 <% keys.forEach(function(key){ %>
                     <div class="clearfix col-xs-12 col-md-6">
                         <div class="portfolio-item">
@@ -51,29 +51,34 @@
                             </p>
                             <div class="tags-article">
                                 <% if (key.tags.length == 1) { %>
-                                    <% var newArray = key.tags[0].split(', ') %>
+                                    <% var allCurrentTags = key.tags[0].split(', ') %>
                                         <form role="search" action="/search">
-                                            <p class="tags">Tags: </p>                                                                                                                                        
-                                            <% newArray.forEach(function(tag) { %>
-                                                <a href="/search?query=<%=tag%>" class="tags link-tags"><%= tag %></a>
-                                                <% }); %>
+                                            <p class="tags">Tags: </p>
+                                            <% for(var i = 0;i<3;i++) { %>
+                                                <a href="/search?query=<%= allCurrentTags[i] %>" class="tags link-tags"><%= allCurrentTags[i] %></a>
+                                            <% } %>
+                                            <!-- <button type="button" data-toggle="popover" data-html="true" data-content="i"></button> -->
+                                            <a href="/keys/<%= key._id%>" class="circle-tags">+<%= allCurrentTags.length - 3 %></a>
                                         </form>
 
                                         <!-- uncomment code above when issue is resolved  -->
                                 <% } else { %>
 
-                                <form role="search" action="/search">
-                                    <% key.tags.forEach(function(tag) { %>
-                                        <a href="/search?query=<%=tag%>" class="tags link-tags"><%= tag %></a>                                        
-                                    <% }); %>
-                                </form>
+                                    <form role="search" action="/search">
+                                        <p class="tags">Tags: </p>
+                                        <% for(var i = 0;i<3;i++) { %>
+                                            <a href="/search?query=<%= key.tags[i] %>" class="tags link-tags"><%= key.tags[i] %></a>
+                                        <% } %>
+                                        <!-- <button type="button" data-toggle="popover" data-html="true" data-content="i"></button> -->
+                                        <a href="/keys/<%= key._id%>" class="circle-tags">+<%= key.tags.length - 3 %></a>
+                                    </form>
                                 <% } %>
                             </div>
                         </div>
                     </div>
                     <% }); %>
             </div>
-            <div class="col-xs-4 col-sm-3">
+            <div class="hidden-xs col-sm-3">
                 <h3 style="border-top: 1px solid black;border-bottom: 1px solid black;padding: 5px">Search by Tags</h3>
                 <%# allTags.forEach(function(tag) { %>
                     <button type="submit" name="query" value="<%# tag %>" class="btn-tags"><%# tag %></button>
