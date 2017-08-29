@@ -4295,7 +4295,7 @@ tbody.collapse.in {
 .dropdown-menu>li>a:focus {
     text-decoration: none;
     color: #fff;
-    background-color: #2780e3
+    background-color: #002E5D
 }
 
 .dropdown-menu>.active>a,
@@ -5016,7 +5016,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 .navbar {
     position: relative;
-    min-height: 100px;
+    min-height: 30px;
     margin-bottom: 21px;
     border: 1px solid transparent
 }
@@ -5141,9 +5141,9 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-brand {
     float: left;
     padding: 17px 15px;
-    font-size: 19px;
+    font-size: 39px;
     line-height: 21px;
-    height: 50px
+    height: 90px;
 }
 
 .navbar-brand:hover,
@@ -5211,7 +5211,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-nav>li>a {
     padding-top: 10px;
     padding-bottom: 10px;
-    line-height: 21px
+    line-height: 45px;
 }
 
 @media (max-width:767px) {
@@ -8577,6 +8577,15 @@ div>h2 {
     font-weight: 200;
     font-family: 'soho-w01-thin-condensed,soho-w02-thin-condensed,serif'
 }
+
+.navbar-fixed-top.scrolled {
+    background-color: #fff !important;
+    transition: background-color 200ms linear;
+  }
+  
+  .navbar-fixed-top.scrolled .nav-link {
+    color:#555;
+  }
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

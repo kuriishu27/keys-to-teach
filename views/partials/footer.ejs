@@ -11,13 +11,6 @@
                 <div class="col-xs-4">
                     <span style="color: white;" class="copyright">© 2017 Keys to Teach Proudly created with Christian Leovido</span>
                 </div>
-                <div class="col-xs-4">
-                    <ul class="list-inline quicklinks">                        
-						<li>
-							<a href="https://github.com/kuriishu27">Website by Christian Ray Leovido</a>
-            			</li>
-                    </ul>
-                </div>
             </div>
         </div>
 
@@ -131,7 +124,25 @@ function disableOther( button ) {
 	}
 }
 
-    </script>
+	</script>
+	
+	<script>
+	$(document).ready(function(){       
+		var scroll_start = 0;
+		var startchange = $('#startchange');
+		var offset = startchange.offset();
+		$(document).scroll(function() { 
+		   scroll_start = $(this).scrollTop();
+		   if(scroll_start > offset.top) {
+			$('.navbar').css('transition', 'all 300ms ease-in-out');
+			   $('.navbar-fixed-top').css('background-color', '#000000');
+			} else {
+			   $('.navbar-fixed-top').css('background-color', 'transparent');
+			}
+		});
+	 });  
+	  
+	</script>
 
     <script>
         html = html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
