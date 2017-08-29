@@ -1,8 +1,8 @@
 <% include ../partials/header %>
 
-    <div id="startchange" class="container keys-section" style="margin-top:50px">
+    <div id="startchange" class="container keys-section" style="margin-top:50px;margin-bottom: 50px;">
         <!-- <div class="prelude"> -->
-        <h1 class="text-center h-custom">KEYS</h1>
+        <p class="text-center h-custom">KEYS</p>
         <h3>HOW TO USE SEARCH THE SEARCH BAR</h3>
         <p>To find the collection go to the search bar above (or in the "Keys" section in the navigation bar) and type your
             key word(s) (eg. wrist, posture, music game) and press enter. A list of relevant "keys" will appear below for
@@ -12,10 +12,10 @@
             section (navigation bar) You are also invited to contribute to this website by sharing your own strategies in
             the "contribution" section.</p>
         <div class="col-xs-12 col-sm-2">
-            <img src="/img/landing1.png" class="img-responsive" style="display:inline-block;width:120px" alt="Keys to teach logo">
+            <img src="/img/landing1.png" class="keys-section-logo" alt="Keys to teach logo">
         </div>
-        <div class="col-sm-8">
-            <div class="input-group stylish-input-group" style="max-width: 400px;display:inline-block;margin: 0 auto;padding-top: 35px">
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group stylish-input-group spacing-keys-search">
                 <form role="search" action="/search">
                     <div class="input-group stylish-input-group">
                         <input type="text" class="form-control typeahead" name="query" placeholder="Search">
@@ -28,8 +28,8 @@
                 </form>
             </div>
         </div>
-        <div class="col-sm-2">
-            <a href="/contribute" class="btn btn-tags">Contribute</a>
+        <div class="col-xs-12 col-sm-2">
+            <a href="/contribute" class="btn btn-tags spacing-keys-button">Contribute</a>
         </div>
 
         <br>
@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-xs-8 col-sm-9">
                 <% keys.forEach(function(key){ %>
-                    <div class="clearfix col-xs-12 col-sm-6">
+                    <div class="clearfix col-xs-12 col-md-6">
                         <div class="portfolio-item">
                             <h2>
                                 <a href='/keys/<%= key._id%>' class="single-article">
@@ -47,13 +47,13 @@
                                 </a>
                             </h2>
                             <p class="item-att">
-                                <%= key.description.substring(0, 200) + "..." %><a class="keys-link" href='/keys/<%= key._id%>'>Read more</a>
+                                <%= key.description.substring(0, 200) + "..." %><a class="keys-link" style="display: block;margin: 0 auto;" href='/keys/<%= key._id%>'>Read more</a>
                             </p>
                             <div class="tags-article">
                                 <% if (key.tags.length == 1) { %>
                                     <% var newArray = key.tags[0].split(', ') %>
                                         <form role="search" action="/search">
-                                            <p class="tags">Tags</p>                                                                                                                                        
+                                            <p class="tags">Tags: </p>                                                                                                                                        
                                             <% newArray.forEach(function(tag) { %>
                                                 <a href="/search?query=<%=tag%>" class="tags link-tags"><%= tag %></a>
                                                 <% }); %>
@@ -85,5 +85,5 @@
 
 
     </div>
-    <br><br><br><br><br><br><br>
+
     <% include ../partials/footer %>
