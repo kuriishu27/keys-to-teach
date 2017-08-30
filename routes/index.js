@@ -31,8 +31,6 @@ router.get('/logout', function(req, res) {
 router.get('/', function(req, res, next) {
 
     // TO-DO: Implement autocomplete
-
-
     var allTags = [];
 
     Key.aggregate([{ $project: { tags : 1}}, 
@@ -47,10 +45,12 @@ router.get('/', function(req, res, next) {
         if (err) {
             next(err);
         } else {
-            allTags = result[0].allTags    
-            console.log(allTags);
+            allTags = result[0].allTags;
+            console.log(res.locals);
+            app.locals.allTags = allTags;
+            console.log(app.locals.allTags.length);
             res.render('index', {
-                allTags: allTags
+                allTags: app.locals.allTags
             });
         }
     });
@@ -255,9 +255,9 @@ router.get('/keys', function(req, res) {
         if(err){
             console.log(err);
         } else {
-            console.log(allKeys);
             res.render('keys/index', {
-                keys: allKeys
+                keys: allKeys,
+                allTags: app.locals.allTags
             });
         }
     });
