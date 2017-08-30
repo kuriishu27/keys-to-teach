@@ -19,8 +19,8 @@
           <div class="input-group stylish-input-group">
             <input type="text" class="form-control typeahead" name="query" placeholder="Search">
             <span class="input-group-addon">
-                            <button type="submit">
-                                <span class="glyphicon glyphicon-search"></span>
+              <button type="submit">
+              <span class="glyphicon glyphicon-search"></span>
             </button>
             </span>
           </div>
@@ -83,9 +83,11 @@
         </div>
         <div class="hidden-xs col-sm-3">
           <h3 style="border-top: 1px solid black;border-bottom: 1px solid black;padding: 5px">Search by Tags</h3>
-          <%# allTags.forEach(function(tag) { %>
-            <button type="submit" name="query" value="<%# tag %>" class="btn-tags"><%# tag %></button>
-            <%# }); %>
+          <form role="search" action="/search">
+          <% allTags.forEach(function(tag) { %>
+            <button href="/search?query=<%= tag %>" name="query" value="<%= tag %>" class="btn btn-sm btn-tags"><%= tag %></button>
+            <% }); %>
+          </form>
         </div>
       </div>
 
