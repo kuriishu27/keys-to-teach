@@ -30,9 +30,14 @@
                     <input class='form-control' type="text" name='key[contributor]' value='<%= key.contributor %>'>
                 </div>
                 <div class='form-group'>
-                    <h3>Tags</h3>                        
-                    <input class='form-control' type="text" name='key[tags]' value='<%= key.tags %>'>
+                    <h3>Tags</h3>
+                    <% key.tags.forEach(function(tag) { %>
+                        <button class="btn btn-xs btn-tags" value='<%= tag %>'><%= tag %></button>
+                        
+                    <% }) %>
+                    <!-- <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>                     -->
                 </div>
+                
                 
                 <div class='form-group'>
                     <button class='btn btn-md btn-primary btn-block'>Submit</button>
