@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,500,600');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Open+Sans');
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -1386,7 +1386,7 @@ html {
 }
 
 body {
-    font-family: "Segoe UI", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+    font-family: "Open Sans", Calibri, Candara, Arial, sans-serif;
     font-size: 15px;
     line-height: 1.42857143;
     color: #333;
@@ -1503,7 +1503,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "Segoe UI", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+    font-family: "Cormorant Garamond", "Segoe UI", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
     font-weight: 300;
     line-height: 1.1;
     color: inherit
@@ -8597,7 +8597,7 @@ div>h2 {
 .h-custom {
     font-weight: 100;
     font-size: 50px;
-    font-family: 'soho-w01-thin-condensed,soho-w02-thin-condensed,serif';
+    font-family: 'Cormorant Garamond', serif;
     text-align: center;
     padding: 30px;
     text-transform: uppercase
