@@ -20,33 +20,30 @@
         
         <p class="item-att"><%= key.description.substring(0, 200) + "..." %><a class="keys-link" href='/keys/<%= key._id%>'>Read more</a>
         </p>
-            <div class="tags-article">
+        <div class="tags-article">
                 <% if (key.tags.length == 1) { %>
-                    <% var newArray = key.tags[0].split(', ') %>
-                    <form role="search" action="/search">
-                        <p class="tags">Tags</p>                                            
-                    <% newArray.forEach(function(tag) { %>
-                        <div class="tags">
-                                <%= tag %>
-                            </div>
-                    <% }); %>
-                    </form>
-                
-                <!-- uncomment code above when issue is resolved  -->
-                <% } else { %>
-                    
-                    <form role="search" action="/search">
-                        <p class="tags">Tags
-                <a class="keys-link" href="<%= key.link %>" target="_blank" class="Key-att">Link</a>
-                <p class="Key-att"><%= key.sourceAuthor %></p>            
-                    <% key.tags.forEach(function(tag) { %>
-                        <div class="tags">
-                                <%= tag %>
-                            </div>
-                        <% }); %>
-                    </form>
+                    <% var allCurrentTags = key.tags[0].split(', ') %>
+                        <form role="search" action="/search">
+                            <p class="tags">Tags: </p>
+                            <% for(var i = 0;i<3;i++) { %>
+                                <a href="/search?query=<%= allCurrentTags[i] %>" class="tags link-tags"><%= allCurrentTags[i] %></a>
+                            <% } %>
+                            <!-- <button type="button" data-toggle="popover" data-html="true" data-content="i"></button> -->
+                            <a href="/keys/<%= key._id%>" class="circle-tags">+<%= allCurrentTags.length - 3 %></a>
+                        </form>
 
-                <% } %> 
+                        <!-- uncomment code above when issue is resolved  -->
+                <% } else { %>
+
+                    <form role="search" action="/search">
+                        <p class="tags">Tags: </p>
+                        <% for(var i = 0;i<3;i++) { %>
+                            <a href="/search?query=<%= key.tags[i] %>" class="tags link-tags"><%= key.tags[i] %></a>
+                        <% } %>
+                        <!-- <button type="button" data-toggle="popover" data-html="true" data-content="i"></button> -->
+                        <a href="/keys/<%= key._id%>" class="circle-tags">+<%= key.tags.length - 3 %></a>
+                    </form>
+                <% } %>
             </div>
         </div>        
     </div> 
