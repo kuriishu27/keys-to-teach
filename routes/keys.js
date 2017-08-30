@@ -89,7 +89,7 @@ router.get('/:id/edit', middleware.isLoggedIn, function(req, res) {
 });
 
 router.put('/:id', middleware.isLoggedIn, function(req, res){
-    Key.findByIdAndUpdate(req.params.id, function(err, foundKey){
+    Key.findByIdAndUpdate(req.params.id, req.body.key, function(err, foundKey){
         if(err){
             res.redirect('/keys');
         } else {
