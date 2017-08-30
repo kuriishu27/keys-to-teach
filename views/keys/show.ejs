@@ -9,19 +9,19 @@
             <% var newArray = keys.tags[0].split(', ') %>
               <% newArray.forEach(function(tag) { %>
                 <button name="query" type="submit" value="<%= tag %>" class="list-group-item list-hover"><%= tag %></button>
-              <% }); %>
+                <% }); %>
         </form>
         <!-- uncomment code above when issue is resolved  -->
         <% } else { %>
           <form role="search" action="/search">
-            
-          <% keys.tags.forEach(function(tag) { %>
-              <button name="query" type="submit" value="<%= tag %>" class="list-group-item list-hover"><%= tag %></button>
-            <% }); %>
 
-          <% } %>
-        </form>
-        
+            <% keys.tags.forEach(function(tag) { %>
+              <button name="query" type="submit" value="<%= tag %>" class="list-group-item list-hover"><%= tag %></button>
+              <% }); %>
+
+                <% } %>
+          </form>
+
       </div>
       <div class='col-xs-9'>
         <h2>
@@ -47,31 +47,31 @@
                 <div class="col-lg-12">
                   <h3 class="page-header">Latest Comments</h3>
                 </div>
-                <% if(currentUser) { %>
-                    <a class='btn btn-xs btn-warning' href='/keys/<%= keys._id %>/comments/<%= comment._id %>/edit'>
-                    Edit
-                    </a>
-                    <form id='delete-form' action='/keys/<%= keys._id %>/comments/<%= comment._id %>?_method=DELETE' method='POST'>
-                        <input type='submit' class='btn btn-xs btn-danger' value='Delete'>
-                    </form>
-                <% } %>
 
                 <% if (keys.comments.length > 0) { %>
-
+                  
                     <div class="col-lg-12">
                             
                     <% keys.comments.forEach(function(comment) { %>
                                             
-                            <div>
-                            <h4 class="media-heading" style="font-weight: 600">
-                                <%= comment.author %>
-                                <small style="color: rgba(0,0,0,0.8)"><%= comment.date %></small>                                
-                            </h4>
-                                <%= comment.text %>
-                            </div>
-                            <hr />
+                      <div>
+                      <h4 class="media-heading" style="font-weight: 600">
+                          <%= comment.author %>
+                          <small style="color: rgba(0,0,0,0.8)"><%= comment.date %></small>                                
+                          <% if(currentUser) { %>
+                            <a class='btn btn-xs btn-warning' href='/keys/<%= keys._id %>/comments/<%= comment._id %>/edit'>
+                            Edit
+                            </a>
+                            <form id='delete-form' action='/keys/<%= keys._id %>/comments/<%= comment._id %>?_method=DELETE' method='POST'>
+                                <input type='submit' class='btn btn-xs btn-danger' value='Delete'>
+                            </form>
+                        <% } %>
+                        </h4>
+                          <%= comment.text %>
+                      </div>
+                      <hr />
                             
-                            <% }); %>
+                      <% }); %>
                             
                         </div>
                         
