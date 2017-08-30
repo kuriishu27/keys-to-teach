@@ -73,8 +73,12 @@ router.get("/search", function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-    Key.findById(req.params.id, function(err, foundKey) {
-        res.render('keys/show', {keys: foundKey});
+    Key.findById(req.params.id).populate('comments').exec(function(err, foundKey) {
+        if(err){
+            console.log(err);
+        } else {
+            res.render('keys/show', {keys: foundKey});
+        }
     });
 });
 
