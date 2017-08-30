@@ -93,6 +93,7 @@ router.put('/:id', middleware.isLoggedIn, function(req, res){
         if(err){
             res.redirect('/keys');
         } else {
+            req.flash('success', 'Key edited!');            
             res.redirect('/keys/' + req.params.id);
         }
     });
@@ -103,6 +104,7 @@ router.delete('/:id', middleware.isLoggedIn, function(req, res){
         if (err){
             res.redirect('/keys');
         } else {
+            req.flash('success', 'Key deleted!');            
             res.redirect('/keys');
         }
     });
