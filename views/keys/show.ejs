@@ -27,17 +27,16 @@
         <h2>
           <%= keys.title %>
             <% if (currentUser) { %>
-              <a class='btn btn-warning' style="display: inline" href='/keys/<%= keys._id %>/edit'>Edit</a>
-              <form style="display: inline" id='delete-form' action='/keys/<%= keys._id %>?_method=DELETE' method='POST'>
-                <button class='btn btn-danger'>Delete</a>
-                    </form>
-                <% } %>
-            </h2>
-            <p><%=keys.description%></p>
-
-            <a class="keys-link" href="<%= keys.link %>" target="_blank" class="Key-att">Link</a>
-            <p class="Key-att"><%= keys.sourceAuthor %></p>
-            </div>
+              <a class='btn btn-warning' style="display: inline-block" href='/keys/<%= keys._id %>/edit'>Edit</a>
+              <form style="display: inline-block" id='delete-form' action='/keys/<%= keys._id %>?_method=DELETE' method='POST'>
+                <button class='btn btn-danger'>Delete</button>
+              </form>
+            <% } %>
+        </h2>
+        <p><%=keys.description%></p>
+        <a class="keys-link" href="<%= keys.link %>" target="_blank" class="Key-att">Link</a>
+        <p class="Key-att"><%= keys.sourceAuthor %></p>
+        </div>
         </div>
 
         <div>
