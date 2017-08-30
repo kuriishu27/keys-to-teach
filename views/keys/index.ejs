@@ -79,7 +79,15 @@
                 </div>
               </div>
             </div>
+            <% }); %>
         </div>
+        <div class="hidden-xs col-sm-3">
+          <h3 style="border-top: 1px solid black;border-bottom: 1px solid black;padding: 5px">Search by Tags</h3>
+          <%# allTags.forEach(function(tag) { %>
+            <button type="submit" name="query" value="<%# tag %>" class="btn-tags"><%# tag %></button>
+            <%# }); %>
+        </div>
+      </div>
 
 
 
