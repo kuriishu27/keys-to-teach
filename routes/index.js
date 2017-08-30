@@ -126,6 +126,14 @@ router.get('/addKeys', middleware.isLoggedIn, function(req, res) {
     res.render('addKeys', {message: req.flash('error')});
 });
 
+router.get('/terms', function(req, res) {
+    res.render('terms');
+});
+
+router.get('/privacyAndPolicy', function(req, res) {
+    res.render('privacy');
+});
+
 router.post('/addKeys', middleware.isLoggedIn, function(req, res) {
     // get data from form and add to campgrounds array
     var title = req.body.title;
@@ -249,6 +257,8 @@ router.post('/contact', function (req, res) {
     });
             
 });
+
+
 
 router.get('/keys', function(req, res) {
     Key.find({}, {}, { sort: {_id: 1} }, function(err, allKeys){
