@@ -1,88 +1,83 @@
 <% include ../partials/header %>
 
-    <div id="startchange" class="container keys-section" style="margin-top:50px;margin-bottom: 50px;">
-        <!-- <div class="prelude"> -->
-        <p class="text-center h-custom">KEYS</p>
-        <h3>HOW TO USE SEARCH THE SEARCH BAR</h3>
-        <p>To find the collection go to the search bar above (or in the "Keys" section in the navigation bar) and type your
-            key word(s) (eg. wrist, posture, music game) and press enter. A list of relevant "keys" will appear below for
-            you to start using during your individual piano lessons. If you did not find what you were looking for, please
-            try a different key word or make sure it is correctly spelled. If you still can't find it, please let me know
-            what kind of teaching strategy you are looking for by sending me a message using the contact form in the "contact"
-            section (navigation bar) You are also invited to contribute to this website by sharing your own strategies in
-            the "contribution" section.</p>
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/landing1.png" class="keys-section-logo" alt="Keys to teach logo">
-        </div>
-        <div class="col-xs-12 col-sm-8">
-            <div class="input-group stylish-input-group spacing-keys-search">
-                <form role="search" action="/search">
-                    <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control typeahead" name="query" placeholder="Search">
-                        <span class="input-group-addon">
+  <div id="startchange" class="container keys-section" style="margin-top:50px;margin-bottom: 50px;">
+    <!-- <div class="prelude"> -->
+    <p class="text-center h-custom">KEYS</p>
+    <h3>HOW TO USE SEARCH THE SEARCH BAR</h3>
+    <p>To find the collection go to the search bar above (or in the "Keys" section in the navigation bar) and type your key
+      word(s) (eg. wrist, posture, music game) and press enter. A list of relevant "keys" will appear below for you to start
+      using during your individual piano lessons. If you did not find what you were looking for, please try a different key
+      word or make sure it is correctly spelled. If you still can't find it, please let me know what kind of teaching strategy
+      you are looking for by sending me a message using the contact form in the "contact" section (navigation bar) You are
+      also invited to contribute to this website by sharing your own strategies in the "contribution" section.</p>
+    <div class="col-xs-12 col-sm-2">
+      <img src="/img/landing1.png" class="keys-section-logo" alt="Keys to teach logo">
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <div class="input-group stylish-input-group spacing-keys-search">
+        <form role="search" action="/search">
+          <div class="input-group stylish-input-group">
+            <input type="text" class="form-control typeahead" name="query" placeholder="Search">
+            <span class="input-group-addon">
                             <button type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-2">
-            <a href="/contribute" class="btn btn-tags spacing-keys-button">Contribute</a>
-        </div>
+            </button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-2">
+      <a href="/contribute" class="btn btn-tags spacing-keys-button">Contribute</a>
+    </div>
 
-        <br>
-        <!-- </div> -->
+    <br>
+    <!-- </div> -->
 
-    <div  style="margin: 100px auto">
-        <div class="row">
-            <div class="col-xs-12 col-sm-9">
-                <% keys.forEach(function(key){ %>
-                    <div class="clearfix col-xs-12 col-md-6">
-                        <div class="portfolio-item">
-                            <h3>
-                                <a href='/keys/<%= key._id%>' class="single-article">
-                                    <%= key.title.toUpperCase() %>
-                                </a>
-                            </h3>
-                            <p class="item-att">
-                                <%= key.description.substring(0, 200) + "..." %><a class="keys-link" style="display: block;margin: 0 auto;" href='/keys/<%= key._id%>'>Read more</a>
-                            </p>
-                            <div class="tags-article">
-                                <% if (key.tags.length == 1) { %>
-                                    <% var allCurrentTags = key.tags[0].split(', ') %>
-                                        <form role="search" action="/search">
-                                            <p class="tags">Tags: </p>
-                                            <% for(var i = 0;i<3;i++) { %>
-                                                <a href="/search?query=<%= allCurrentTags[i] %>" class="tags link-tags"><%= allCurrentTags[i] %></a>
-                                            <% } %>
-                                            <!-- <button type="button" data-toggle="popover" data-html="true" data-content="i"></button> -->
-                                            <a href="/keys/<%= key._id%>" class="circle-tags">+<%= allCurrentTags.length - 3 %></a>
-                                        </form>
+    <div style="margin: 100px auto">
+      <div class="row">
+        <div class="col-xs-12 col-sm-9">
+          <% keys.forEach(function(key){ %>
+            <div class="clearfix col-xs-12 col-md-6">
+              <div class="portfolio-item">
+                <h3>
+                  <a href='/keys/<%= key._id%>' class="single-article">
+                    <%= key.title.toUpperCase() %>
+                  </a>
+                </h3>
+                <p class="item-att">
+                  <%= key.description.substring(0, 200) + "..." %><a class="keys-link" style="display: block;margin: 0 auto;" href='/keys/<%= key._id%>'>Read more</a>
+                </p>
+                <div class="tags-article">
+                  <% if (key.tags.length == 1) { %>
+                    <% var allCurrentTags = key.tags[0].split(', ') %>
+                      <form role="search" action="/search">
+                        <p class="tags">Tags: </p>
+                        <% for(var i = 0;i<3;i++) { %>
+                          <a href="/search?query=<%= allCurrentTags[i] %>" class="tags link-tags">
+                            <%= allCurrentTags[i] %>
+                          </a>
+                          <% } %>
+                            <!-- <button type="button" data-toggle="popover" data-html="true" data-content="i"></button> -->
+                            <a href="/keys/<%= key._id%>" class="circle-tags">+<%= allCurrentTags.length - 3 %></a>
+                      </form>
 
-                                        <!-- uncomment code above when issue is resolved  -->
-                                <% } else { %>
+                      <!-- uncomment code above when issue is resolved  -->
+                      <% } else { %>
 
-                                    <form role="search" action="/search">
-                                        <p class="tags">Tags: </p>
-                                        <% for(var i = 0;i<3;i++) { %>
-                                            <a href="/search?query=<%= key.tags[i] %>" class="tags link-tags"><%= key.tags[i] %></a>
-                                        <% } %>
-                                        <!-- <button type="button" data-toggle="popover" data-html="true" data-content="i"></button> -->
-                                        <a href="/keys/<%= key._id%>" class="circle-tags">+<%= key.tags.length - 3 %></a>
-                                    </form>
-                                <% } %>
-                            </div>
-                        </div>
-                    </div>
-                    <% }); %>
-            </div>
-            <div class="hidden-xs col-sm-3">
-                <h3 style="border-top: 1px solid black;border-bottom: 1px solid black;padding: 5px">Search by Tags</h3>
-                <%# allTags.forEach(function(tag) { %>
-                    <button type="submit" name="query" value="<%# tag %>" class="btn-tags"><%# tag %></button>
-                    <%# }); %>
+                        <form role="search" action="/search">
+                          <p class="tags">Tags: </p>
+                          <% for(var i = 0;i<3;i++) { %>
+                            <a href="/search?query=<%= key.tags[i] %>" class="tags link-tags">
+                              <%= key.tags[i] %>
+                            </a>
+                            <% } %>
+                              <!-- <button type="button" data-toggle="popover" data-html="true" data-content="i"></button> -->
+                              <a href="/keys/<%= key._id%>" class="circle-tags">+<%= key.tags.length - 3 %></a>
+                        </form>
+                        <% } %>
+                </div>
+              </div>
             </div>
         </div>
 
