@@ -137,6 +137,24 @@ function disableOther( button ) {
 	  
 	</script>
 
+	<script>
+	
+	document.getElementById("addTags").onclick = function () {
+    var ok = true;
+
+     if (ok === true) {
+          var div = document.createElement('div');
+           
+          div.className = 'new-rect';       
+
+       document.getElementsByTagName('body')[0].appendChild(div);
+    }
+};
+
+
+	
+	</script>
+
     <script>
         html = html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     </script>
