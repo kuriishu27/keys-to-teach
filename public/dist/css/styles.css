@@ -5140,10 +5140,10 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 .navbar-brand {
     float: left;
-    padding: 17px 15px;
+    /* padding: 17px 15px; */
     font-size: 19px;
     line-height: 21px;
-    height: 30px;
+    height: 70px;
 }
 
 .navbar-brand:hover,
@@ -5462,7 +5462,8 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 @media (max-width:767px) {
     .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-        color: #fff
+        color: #fff;
+        background-color: black
     }
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
@@ -8559,7 +8560,7 @@ div>h2 {
 }
 
 #landing-header {
-    margin-top: -40px;
+    margin: 10px 0 50px 0;
 }
 
 #contribute-main {
@@ -8660,6 +8661,15 @@ div>h2 {
 
 .terms-privacy {
     text-align: left;
+}
+
+.intro {
+    font-weight: 500;
+    color: #605E5E
+}
+
+.survey-img {
+    margin: 40px auto;
 }
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
