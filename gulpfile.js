@@ -9,6 +9,23 @@ var ejs = require("gulp-ejs");
 var gutil = require('gulp-util');
 var nodemon = require('gulp-nodemon');
 var reload = browserSync.reload;
+const imagemin = require('gulp-imagemin');
+
+gulp.task('img-min', () =>
+	gulp.src('public/img/*')
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      imagemin.optipng({optimizationLevel: 5}),
+      imagemin.svgo({
+        plugins: [
+          {removeViewBox: true},
+          {cleanupIDs: false}
+        ]
+      })
+    ]))
+		.pipe(gulp.dest('public/dist/img'))
+);
 
 gulp.task('scripts', function () {
   gulp.src('js/*.js')
@@ -26,40 +43,10 @@ gulp.task('styles', function () {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-// gulp.task('styles', function() {
-//   gulp.src('css/*.css')
-//     .pipe(concat('spectre.css'))
-//     .pipe(cssmin())
-//     .pipe(rename({suffix: '.min'}))
-//     .pipe(gulp.dest('./public/dist/css'));
-// });
-
 gulp.task('automate', function () {
   gulp.watch('./css/*.css', ['styles']);
   gulp.watch('./js/*.js', ['scripts']);
 });
-
-// gulp.task('browser-sync', ['styles'], function () {
-//   var files = [
-//     'views/*.ejs',
-//     'dist/css/**/*.css',
-//     'dist/img/**/*.png',
-//     'dist/js/**/*.js',
-//     'css/*.css'
-//   ];
-
-//   browserSync.init(files, {
-//     server: {
-//       baseDir: './',
-//       proxy: "http://localhost:8080",
-//       ui: {
-//         port: 8080
-//       }
-//     }
-//   });
-//   gulp.watch('./scss/*.scss', ['styles']);
-//   gulp.watch(["*.html", './css/*.css']).on("change", reload);
-// });
 
 gulp.task('ejs', function(){
   return gulp.src('views/**/*.ejs')
@@ -80,9 +67,8 @@ gulp.task('browser-sync', ['nodemon'], function () {
     proxy: "http://localhost:8080",
     port: 8081,
   });
-  gulp.watch('./public/stylesheets/scss/*.scss', ['styles']);
-  gulp.watch(["./views/**/*.ejs", './scss/*.scss']).on('change', reload);  
-  // gulp.watch(["*.ejs", './css/*.css']).on("change", reload);
+  gulp.watch('public/stylesheets/scss/*.scss', ['styles']);
+  gulp.watch(["./views/**/*.ejs", 'public/stylesheets/scss/*.scss']).on('change', reload);  
 });
 
 gulp.task('nodemon', function (cb) {
