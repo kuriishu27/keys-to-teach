@@ -78,8 +78,8 @@ gulp.task('browser-sync', ['nodemon'], function () {
     proxy: "http://localhost:8080",
     port: 8081,
   });
-  gulp.watch('./scss/*.scss', ['styles']);
-  gulp.watch(["./views/**/*.ejs", './css/*.css']).on('change', reload);  
+  gulp.watch('./public/stylesheets/scss/*.scss', ['styles']);
+  gulp.watch(["./views/**/*.ejs", './scss/*.scss']).on('change', reload);  
   // gulp.watch(["*.ejs", './css/*.css']).on("change", reload);
 });
 
