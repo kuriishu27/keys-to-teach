@@ -18,9 +18,11 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('styles', function () {
-  gulp.src('./scss/*.scss')
+  gulp.src('./public/stylesheets/scss/*.scss')
     .pipe(sass())
-    .pipe(gulp.dest('./css'))
+    .pipe(cssmin())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./public/dist/css'))
     .pipe(browserSync.reload({ stream: true }));
 });
 
